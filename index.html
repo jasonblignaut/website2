@@ -9,7 +9,7 @@
     <meta name="robots" content="index, follow">
     <title>Fat Boyz Maintenance | Expert Handyman Services in Pretoria</title>
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/icons/fbmlogo.ico">
+    <link rel="icon" type="image/x-icon" href="/images/fbmlogo.ico">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
     <!-- Embedded CSS -->
@@ -72,7 +72,7 @@
         }
 
         .logo-img:hover {
-            transform: scale(1.1);
+            transform: rotate(15deg);
         }
 
         .menu-toggle {
@@ -144,7 +144,7 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../channel-pictures/fbmBGimage.jpg');
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/image1');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -160,13 +160,13 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 4.5rem;
             animation: slideIn 1.2s ease-out;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
         }
 
         .hero-content p {
             font-size: 1.8rem;
             margin: 1.5rem 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero-content .btn {
@@ -230,6 +230,9 @@
 
         .signal {
             text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+            animation-delay: 0.5s;
         }
 
         .signal img {
@@ -311,6 +314,7 @@
             border-radius: 5px;
             margin-bottom: 1rem;
             transition: transform 0.3s;
+            border: 2px solid #F5F5F5; /* Soft White */
         }
 
         .service-card:hover .service-thumb {
@@ -397,7 +401,8 @@
         .overlay p {
             color: #F5F5F5; /* Soft White */
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         /* Testimonials Section */
@@ -440,11 +445,36 @@
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
         }
+
+        .testimonial:nth-child(1) { animation-delay: 0.2s; }
+        .testimonial:nth-child(2) { animation-delay: 0.4s; }
+        .testimonial:nth-child(3) { animation-delay: 0.6s; }
 
         .testimonial p {
             font-size: 1.2rem;
             margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .testimonial p::before,
+        .testimonial p::after {
+            content: '"';
+            font-size: 2rem;
+            color: #FF6200; /* Warm Orange */
+            position: absolute;
+        }
+
+        .testimonial p::before {
+            top: -10px;
+            left: -10px;
+        }
+
+        .testimonial p::after {
+            bottom: -10px;
+            right: -10px;
         }
 
         .testimonial h4 {
@@ -484,14 +514,14 @@
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .contact input,
         .contact textarea {
             width: 100%;
             padding: 1rem;
-            border: none;
+            border: 1px solid #333333; /* Charcoal Gray */
             border-radius: 5px;
             font-family: 'Open Sans', sans-serif;
             background: #F5F5F5; /* Soft White */
@@ -535,12 +565,14 @@
         .form-message {
             margin-top: 1rem;
             font-size: 1rem;
+            opacity: 0;
+            animation: fadeIn 0.5s ease forwards;
         }
 
         /* Sticky Call Now Button */
         .call-now {
             position: fixed;
-            bottom: 20px;
+            bottom: 80px;
             right: 20px;
             background: #1A2B5F; /* Navy Blue */
             color: #F5F5F5; /* Soft White */
@@ -590,33 +622,24 @@
             color: #F5F5F5; /* Soft White */
             text-align: center;
             padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
         footer a {
             color: #FF6200; /* Warm Orange */
             text-decoration: none;
+            transition: color 0.3s;
         }
 
         footer a:hover {
+            color: #F5F5F5; /* Soft White */
             text-decoration: underline;
         }
 
-        .social-links {
-            margin: 1.5rem 0;
-        }
-
-        .social-links img {
-            width: 30px;
-            height: 30px;
-            margin: 0 0.5rem;
-            transition: transform 0.3s;
-        }
-
-        .social-links img:hover {
-            transform: rotate(360deg);
-        }
-
-        /* Animations */
+             /* Animations */
         @keyframes slideIn {
             from { opacity: 0; transform: translateY(-50px); }
             to { opacity: 1; transform: translateY(0); }
@@ -639,6 +662,11 @@
         @keyframes topDown {
             0% { opacity: 0; transform: translateY(-20px); }
             100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         /* Responsive Design */
@@ -685,13 +713,13 @@
                 <span>Onderstepoort, Pretoria, South Africa</span> | 
                 <a href="tel:+270829202766">+27-0829202766</a> | 
                 <a href="mailto:office@fatboyz.co.za">office@fatboyz.co.za</a> | 
-                Mon-Fri 08:00-16:00
+                Mon-Fri 09:00-17:00
             </p>
         </div>
         <nav>
             <div class="logo">
                 <a href="#home">
-                    <img src="icons/fbmlogo.png" alt="Fat Boyz Maintenance Logo" class="logo-img">
+                    <img src="/images/fbmlogo.png" alt="Fat Boyz Maintenance Logo" class="logo-img">
                 </a>
             </div>
             <div class="menu-toggle">
@@ -725,11 +753,11 @@
         <p>Owning and caring for a home is a big responsibility. Having the right handyman to help you is even more important. Based in Onderstepoort, Pretoria, Fat Boyz Maintenance takes care of the things you can’t – with skill, grit, and a smile. From tiling to boundary walls, we bring a rugged, reliable approach to every job.</p>
         <div class="trust-signals">
             <div class="signal">
-                <img src="icons/fbmlogo.png" alt="Verified Icon">
+                <img src="/images/image2" alt="Verified Icon">
                 <p>Fully Insured & Certified</p>
             </div>
             <div class="signal">
-                <img src="icons/fbmlogo.png" alt="Location Icon">
+                <img src="/images/image3" alt="Location Icon">
                 <p>Serving Pretoria with Pride</p>
             </div>
         </div>
@@ -740,26 +768,26 @@
         <h2>Our Services</h2>
         <div class="service-grid">
             <div class="service-card">
-                <img src="icons/fbmlogo.png" alt="Tiling Icon" class="service-icon">
-                <img src="thumbnails/fbmlogo.png" alt="Tiling Thumbnail" class="service-thumb">
+                <img src="/images/image8" alt="Tiling Icon" class="service-icon">
+                <img src="/images/image4" alt="Tiling Thumbnail" class="service-thumb">
                 <h3>Tiling</h3>
                 <p>From your walls to your floors and more – precision tiling that lasts.</p>
             </div>
             <div class="service-card">
-                <img src="icons/fbmlogo.png" alt="Door Icon" class="service-icon">
-                <img src="thumbnails/fbmlogo.png" alt="Door Thumbnail" class="service-thumb">
+                <img src="/images/image9" alt="Door Icon" class="service-icon">
+                <img src="/images/image5" alt="Door Thumbnail" class="service-thumb">
                 <h3>Door Installation</h3>
                 <p>Supply, installation, and varnish – your doors, done right.</p>
             </div>
             <div class="service-card">
-                <img src="icons/fbmlogo.png" alt="Painting Icon" class="service-icon">
-                <img src="thumbnails/fbmlogo.png" alt="Painting Thumbnail" class="service-thumb">
+                <img src="/images/image10" alt="Painting Icon" class="service-icon">
+                <img src="/images/image6" alt="Painting Thumbnail" class="service-thumb">
                 <h3>Wall Repairs & Painting</h3>
                 <p>Cracks fixed, colors popped – walls that wow.</p>
             </div>
             <div class="service-card">
-                <img src="icons/fbmlogo.png" alt="General Icon" class="service-icon">
-                <img src="thumbnails/fbmlogo.png" alt="General Thumbnail" class="service-thumb">
+                <img src="/images/image11" alt="General Icon" class="service-icon">
+                <img src="/images/image7" alt="General Thumbnail" class="service-thumb">
                 <h3>And Many More</h3>
                 <p>Boundary walls, gates, carports, ceilings, paving, and general maintenance.</p>
             </div>
@@ -771,25 +799,25 @@
         <h2>Our Work</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="thumbnails/fbmlogo.png" alt="Tiling Project">
+                <img src="/images/image12" alt="Tiling Project">
                 <div class="overlay">
                     <p>Tiling Project</p>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="thumbnails/fbmlogo.png" alt="Door Installation">
+                <img src="/images/image13" alt="Door Installation">
                 <div class="overlay">
                     <p>Door Installation</p>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="thumbnails/fbmlogo.png" alt="Wall Painting">
+                <img src="/images/image14" alt="Wall Painting">
                 <div class="overlay">
                     <p>Wall Painting</p>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="thumbnails/fbmlogo.png" alt="General Maintenance">
+                <img src="/images/image15" alt="General Maintenance">
                 <div class="overlay">
                     <p>General Maintenance</p>
                 </div>
@@ -838,11 +866,6 @@
     <!-- Footer -->
     <footer>
         <p>© 2025 Fat Boyz Maintenance | <a href="https://fatboyzfix.co.za">fatboyzfix.co.za</a></p>
-        <div class="social-links">
-            <a href="#"><img src="icons/fbmlogo.png" alt="Facebook"></a>
-            <a href="#"><img src="icons/fbmlogo.png" alt="Instagram"></a>
-            <a href="#"><img src="icons/fbmlogo.png" alt="Twitter"></a>
-        </div>
     </footer>
 
     <!-- Embedded JavaScript -->
@@ -888,6 +911,8 @@
                     formMessage.style.background = '#1A2B5F';
                     formMessage.style.padding = '1rem';
                     formMessage.style.borderRadius = '5px';
+                    formMessage.style.opacity = '0';
+                    formMessage.style.animation = 'fadeIn 0.5s ease forwards';
                     form.reset();
                 } else {
                     formMessage.textContent = 'Oops! Something went wrong. Please try again.';
@@ -895,6 +920,8 @@
                     formMessage.style.background = '#F5F5F5';
                     formMessage.style.padding = '1rem';
                     formMessage.style.borderRadius = '5px';
+                    formMessage.style.opacity = '0';
+                    formMessage.style.animation = 'fadeIn 0.5s ease forwards';
                 }
             })
             .catch(error => {
@@ -903,6 +930,8 @@
                 formMessage.style.background = '#F5F5F5';
                 formMessage.style.padding = '1rem';
                 formMessage.style.borderRadius = '5px';
+                formMessage.style.opacity = '0';
+                formMessage.style.animation = 'fadeIn 0.5s ease forwards';
             });
         });
 
@@ -959,6 +988,22 @@
             document.querySelectorAll('.nav-links li').forEach((item, index) => {
                 item.style.animation = `topDown 0.5s ease forwards ${index * 0.1}s`;
             });
+        });
+
+        // Fade-In Animation for Testimonials on Scroll
+        const testimonials = document.querySelectorAll('.testimonial');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.animation = `fadeIn 0.5s ease forwards ${index * 0.2}s`;
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        testimonials.forEach(testimonial => {
+            observer.observe(testimonial);
         });
     </script>
 </body>
