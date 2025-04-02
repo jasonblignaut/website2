@@ -54,11 +54,11 @@
         .contact input:focus,.contact textarea:focus{outline:none;border-color:#C19A6B;box-shadow:0 0 10px rgba(193,154,107,.2)}
         .contact textarea{resize:vertical}.contact button{background:#C19A6B;color:#FFF;padding:1rem;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700}
         .contact button:hover{background:#4A6A7A;box-shadow:0 0 15px rgba(193,154,107,.5)}.form-message{margin-top:1rem;text-align:center}
-        .call-now{position:fixed;bottom:100px;right:20px;background:#C19A6B;color:#FFF;padding:1rem 2rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:1.2rem;box-shadow:0 5px 15px rgba(0,0,0,.2);z-index:9;transition:all .5s ease-in-out}
-        .call-now.scrolled{bottom:20px;left:20px;right:auto;padding:0;width:50px;height:50px;border-radius:50%;font-size:0;background:#C19A6B url('/images/phone.jpg') no-repeat center;background-size:cover}
-        .call-now:hover{background:#4A6A7A url('/images/phone.jpg') no-repeat center;background-size:cover;box-shadow:0 0 15px rgba(193,154,107,.5)}
+        .call-now{position:fixed;bottom:100px;right:20px;background:#C19A6B;color:#FFF;padding:1rem 2rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:1.2rem;box-shadow:0 5px 15px rgba(0,0,0,.2);z-index:9;transition:opacity .5s ease-in-out}
+        .call-now.scrolled{opacity:0;pointer-events:none}
+        .call-now:hover{background:#4A6A7A;box-shadow:0 0 15px rgba(193,154,107,.5)}
         .whatsapp-btn{position:fixed;bottom:20px;left:20px;z-index:9;opacity:0;transition:opacity .5s ease-in-out}
-        .whatsapp-btn img{width:50px;height:50px;border-radius:50%;box-shadow:0 5px 15px rgba(0,0,0,.2)}
+        .whatsapp-btn img{width:60px;height:60px;box-shadow:0 5px 15px rgba(0,0,0,.2)}
         .whatsapp-btn.visible{opacity:1}
         .whatsapp-btn:hover img{box-shadow:0 0 15px rgba(37,211,102,.5)}
         .scroll-to-top{position:fixed;bottom:20px;right:20px;background:#1A2526;color:#FFF;padding:.5rem 1rem;border:none;border-radius:50%;font-size:1rem;box-shadow:0 5px 15px rgba(0,0,0,.2);opacity:0;pointer-events:none}
@@ -70,7 +70,6 @@
         @media (max-width:768px){
             .nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:#1A2526;padding:1rem 0}.nav-links.active{display:flex;flex-direction:column;gap:1rem}
             .nav-links li a{padding:1rem;display:block}
-            .menu-toggle{display:flex;position:absolute;right:2rem;top:1rem}
             .nav-phone{display:none}
             .hero-content h1{font-size:1.5rem}.hero-content p{font-size:0.9rem}.hero-content img{max-width:250px}.btn-primary{padding:0.7rem 1.2rem;font-size:0.9rem}
             .hero-content{padding:0.5rem;margin-top:3.5rem}.section h2{font-size:1.8rem}
