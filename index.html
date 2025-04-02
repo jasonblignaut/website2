@@ -3,41 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fat Boyz Maintenance - Home Maintenance and Repairs. Tiling, door installation, painting, and more.">
+    <meta name="keywords" content="handyman, home maintenance, Pretoria, tiling, door installation, painting, boundary walls, gates, South Africa">
+    <meta name="author" content="Fat Boyz Maintenance">
+    <meta name="robots" content="index, follow">
     <title>Fat Boyz Maintenance | Home Maintenance and Repairs</title>
+    <meta property="og:title" content="Fat Boyz Maintenance">
+    <meta property="og:description" content="Home Maintenance and Repairs. Tiling, door installation, painting, and more.">
+    <meta property="og:image" content="/images/fbmlogo.png">
+    <meta property="og:url" content="https://fatboyzfix.co.za">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="/images/fbmlogo.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {margin:0;padding:0;box-sizing:border-box}
-        body {font-family:'Lato',sans-serif;background:#F7F7F7;color:#1A2526;line-height:1.6;overflow-x:hidden}
-        a {text-decoration:none}
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Lato',sans-serif;background:#F7F7F7;color:#1A2526;line-height:1.6;overflow-x:hidden}
+        a{text-decoration:none}
+        button{cursor:pointer}
+        section{scroll-margin-top:80px}
 
-        /* Hero Section (for context) */
-        .hero {
-            background:linear-gradient(135deg,rgba(26,37,38,.9),rgba(74,106,122,.7)),url('/images/onderstepoort.jpg');
-            background-size:cover;
-            background-position:center;
-            background-repeat:no-repeat;
-            height:100vh;
-            display:flex;
-            justify-content:center;
-            text-align:center;
-            color:#FFF;
-            padding:1rem;
-        }
+        /* Header */
+        header{background:#1A2526;color:#FFF;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+        nav{display:flex;justify-content:center;align-items:center;padding:1rem 2rem;max-width:1200px;margin:0 auto;position:relative}
+        .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:11}
+        .menu-toggle span{width:30px;height:3px;background:#FFF;transition:.3s}
+        .menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+        .menu-toggle.active span:nth-child(2){opacity:0}
+        .menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+        .nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+        .nav-links li a{color:#FFF;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;padding-bottom:5px}
+        .nav-links li a:hover,.nav-links li a.active{color:#C19A6B;border-bottom:2px solid #C19A6B}
+        .nav-phone{margin-left:1rem;color:#C19A6B;font-family:'Lato',sans-serif;font-weight:400;font-size:.9rem}
 
-        /* Call Now Button - Base (Hidden by Default) */
+        /* Hero */
+        .hero{background:linear-gradient(135deg,rgba(26,37,38,.9),rgba(74,106,122,.7)),url('/images/onderstepoort.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;height:100vh;display:flex;justify-content:center;text-align:center;color:#FFF;padding:1rem}
+        .hero-content{max-width:90%;display:flex;flex-direction:column;align-items:center;padding:0.5rem;margin-top:4rem}
+        .hero-content img{max-width:400px;width:80%;margin-bottom:0.5rem}
+        .hero-content h1{font-family:'Montserrat',sans-serif;font-size:2.5rem;font-weight:700;margin-bottom:0.5rem}
+        .hero-content p{font-size:1.2rem;margin-bottom:0.5rem}
+        .btn-primary{background:#C19A6B;color:#FFF;padding:0.8rem 1.5rem;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;transition:.3s}
+        .btn-primary:hover{background:#4A6A7A;transform:translateY(-3px);box-shadow:0 0 15px rgba(193,154,107,.5)}
+
+        /* Sections */
+        .section{padding:4rem 2rem}
+        .section h2{font-family:'Montserrat',sans-serif;font-size:2.2rem;color:#1A2526;text-align:center;margin-bottom:3rem}
+        .section h2::after{content:'';display:block;width:80px;height:3px;background:#C19A6B;margin:1rem auto}
+        .about{background:#FFF}
+        .about-content{max-width:800px;margin:0 auto;text-align:center}
+        .about-content p{font-size:1.1rem;margin-bottom:1.5rem}
+        .trust-signals{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:2rem}
+        .signal{text-align:center}
+        .signal img{width:40px;margin-bottom:.5rem}
+        .signal p{font-size:1rem;color:#1A2526}
+        .services{background:#F7F7F7}
+        .service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1200px;margin:0 auto}
+        .service-card{background:#FFF;padding:1.5rem;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1);transition:.3s}
+        .service-card:hover{transform:translateY(-5px);box-shadow:0 0 20px rgba(193,154,107,.3);border:1px solid #C19A6B}
+        .service-card img{width:100%;height:150px;object-fit:cover;border-radius:5px;margin-bottom:1rem}
+        .service-card h3{font-family:'Montserrat',sans-serif;font-size:1.3rem;color:#1A2526;margin-bottom:.5rem}
+        .service-card p{font-size:.95rem;color:#4A6A7A}
+        .gallery{background:#FFF}
+        .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;max-width:1200px;margin:0 auto}
+        .gallery-item{position:relative;border-radius:5px;overflow:hidden}
+        .gallery-item img{width:100%;height:200px;object-fit:cover;cursor:pointer}
+        .gallery-item .overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(26,37,38,.8),rgba(74,106,122,.6));display:flex;align-items:center;justify-content:center;opacity:0;transition:.3s}
+        .gallery-item:hover .overlay{opacity:1}
+        .overlay p{color:#FFF;font-family:'Montserrat',sans-serif;font-size:1.1rem}
+        .testimonials{background:#F7F7F7}
+        .testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1200px;margin:0 auto}
+        .testimonial{background:#FFF;padding:1.5rem;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1)}
+        .testimonial p{font-size:1rem;color:#1A2526;margin-bottom:1rem}
+        .testimonial h4{font-family:'Montserrat',sans-serif;font-size:.9rem;color:#C19A6B}
+        .contact{background:#FFF}
+        .contact form{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:1rem}
+        .contact input,.contact textarea{width:100%;padding:1rem;border:1px solid #4A6A7A;border-radius:5px;font-family:'Lato',sans-serif;color:#1A2526}
+        .contact input:focus,.contact textarea:focus{outline:none;border-color:#C19A6B;box-shadow:0 0 10px rgba(193,154,107,.2)}
+        .contact textarea{resize:vertical}
+        .contact button{background:#C19A6B;color:#FFF;padding:1rem;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700}
+        .contact button:hover{background:#4A6A7A;box-shadow:0 0 15px rgba(193,154,107,.5)}
+        .form-message{margin-top:1rem;text-align:center}
+
+        /* Call Now Button */
         .call-now {
-            display:none; /* Hidden everywhere unless overridden */
+            display:none; /* Hidden by default */
             position:fixed;
             bottom:100px;
             background:#C19A6B;
             color:#FFF;
-            padding:1rem 2rem;
+            padding:0.8rem 1.5rem; /* Adjusted for balanced length */
             border-radius:30px;
             font-family:'Montserrat',sans-serif;
             font-size:1.2rem;
             box-shadow:0 5px 15px rgba(0,0,0,.2);
             z-index:9;
             transition:opacity .5s ease-in-out;
+            text-align:center;
         }
         .call-now.scrolled {
             opacity:0;
@@ -48,22 +109,35 @@
             box-shadow:0 0 15px rgba(193,154,107,.5);
         }
 
-        /* Desktop - Ensure Hidden */
+        /* Desktop - Hidden */
         @media (min-width:769px) {
             .call-now {
-                display:none !important; /* Max specificity */
+                display:none !important;
             }
         }
 
-        /* Mobile - Force Visible with Animation */
+        /* Mobile - Visible with Animation */
         @media (max-width:768px) {
+            .menu-toggle{display:flex;position:absolute;right:2rem;top:50%;transform:translateY(-50%)}
+            .nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:#1A2526;padding:1rem 0}
+            .nav-links.active{display:flex;flex-direction:column;gap:1rem}
+            .nav-links li a{padding:1rem;display:block}
+            .nav-phone{display:none}
+            .hero{background-size:100% 100%;background-position:center;background-repeat:no-repeat;height:100vh}
+            .hero-content h1{font-size:1.5rem}
+            .hero-content p{font-size:0.9rem}
+            .hero-content img{max-width:250px}
+            .btn-primary{padding:0.7rem 1.2rem;font-size:0.9rem}
+            .hero-content{padding:0.5rem;margin-top:3.5rem}
+            .section h2{font-size:1.8rem}
+            .service-card img,.gallery-item img{height:120px}
             .call-now {
-                display:block !important; /* Force it to show */
+                display:block !important;
                 right:50%;
                 transform:translateX(50%);
-                padding:1.2rem 2.5rem;
-                font-size:1.5rem;
-                opacity:1; /* Fully visible */
+                padding:0.8rem 1.5rem; /* Balanced size */
+                font-size:1.2rem;
+                opacity:1;
                 position:relative;
                 overflow:hidden;
                 animation:pulse 2s infinite ease-in-out;
@@ -93,29 +167,183 @@
             }
         }
 
-        /* Smaller Mobile Adjustments */
+        /* Smaller Mobile */
         @media (max-width:480px) {
-            .call-now {
-                bottom:90px;
-                padding:1rem 2rem;
-                font-size:1.2rem;
-            }
+            .hero-content h1{font-size:1.2rem;margin-bottom:0.3rem}
+            .hero-content p{font-size:0.8rem;margin-bottom:0.3rem}
+            .hero-content img{max-width:200px;margin-bottom:0.3rem}
+            .btn-primary{padding:0.6rem 1rem;font-size:0.8rem}
+            .section h2{font-size:1.5rem}
+            .hero-content{margin-top:3rem}
+            .call-now{bottom:90px;padding:0.7rem 1.2rem;font-size:1rem}
         }
+
+        /* Other Elements */
+        .whatsapp-btn{position:fixed;bottom:20px;left:20px;z-index:9;opacity:0;transition:opacity .5s ease-in-out}
+        .whatsapp-btn img{width:60px;height:60px}
+        .whatsapp-btn.visible{opacity:1}
+        .scroll-to-top{position:fixed;bottom:20px;right:20px;background:#1A2526;color:#FFF;padding:.5rem 1rem;border:none;border-radius:50%;font-size:1rem;box-shadow:0 5px 15px rgba(0,0,0,.2);opacity:0;pointer-events:none}
+        footer{background:#1A2526;color:#FFF;text-align:center;padding:1rem}
+        .footer a{color:#C19A6B}
+        .hero-content img{filter:drop-shadow(0 0 10px rgba(255,255,255,.7))}
+        img{user-select:none;-webkit-user-drag:none}
+        .fullscreen-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);z-index:100;justify-content:center;align-items:center}
+        .fullscreen-overlay img{max-width:90%;max-height:90%;object-fit:contain}
     </style>
 </head>
 <body>
-    <section class="hero"></section>
+    <header>
+        <nav>
+            <div class="menu-toggle"><span></span><span></span><span></span></div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <span class="nav-phone">0829202766</span>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <img src="/images/fbmlogo.png" alt="Fat Boyz Maintenance Logo">
+            <h1>Home Maintenance and Repairs</h1>
+            <p>Upgrade your home with new tiling, painting, door installations, and more...</p>
+            <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Get a Free Quote</button>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <p>Owning and caring for a home is a big responsibility. Having the right people to help you do this is even more important. This is where we come in. We take care of the things that you can’t. Ceilings, Painting, Tiling, Driveway Gates, Wooden Doors, Paving, Painting of roofs, Precast walls, Palisade Fencing and other.</p>
+            <div class="trust-signals">
+                <div class="signal"><img src="/images/certified.jpg" alt="Certified Icon"><p>Professional Service</p></div>
+                <div class="signal"><img src="/images/maplogo.jpg" alt="Location Icon"><p>Serving Pretoria & Surrounds</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card"><img src="/images/tiling.jpg" alt="Tiling"><h3>Tiling</h3><p>Tiling for walls, floors, and more.</p></div>
+            <div class="service-card"><img src="/images/door-installation.jpg" alt="Door Installation"><h3>Door Installation</h3><p>Installation and finishing.</p></div>
+            <div class="service-card"><img src="/images/painting.jpg" alt="Painting"><h3>Wall Repairs & Painting</h3><p>Repairs and vibrant finishes.</p></div>
+            <div class="service-card"><img src="/images/maintenance.jpg" alt="General Maintenance"><h3>General Maintenance</h3><p>Gates, carports, ceilings, paving, and more.</p></div>
+        </div>
+    </section>
+
+    <section id="gallery" class="section gallery">
+        <h2>Our Work</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="/images/project1.jpg" alt="Tiling Project"><div class="overlay"><p>Tiling Project</p></div></div>
+            <div class="gallery-item"><img src="/images/project2.jpg" alt="Door Installation"><div class="overlay"><p>Door Installation</p></div></div>
+            <div class="gallery-item"><img src="/images/project3.jpg" alt="Wall Painting"><div class="overlay"><p>Wall Painting</p></div></div>
+            <div class="gallery-item"><img src="/images/project4.jpg" alt="General Maintenance"><div class="overlay"><p>General Maintenance</p></div></div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial"><p>"Fat Boyz transformed my home with their tiling expertise. On time and phenomenal quality!"</p><h4>– Sandra M, Pretoria</h4></div>
+            <div class="testimonial"><p>"Needed a gate installed fast, and they exceeded expectations. Highly recommend!"</p><h4>– Johan K, Onderstepoort</h4></div>
+            <div class="testimonial"><p>"Professional and friendly. My walls and ceiling look amazing!"</p><h4>– Thandi N, Pretoria</h4></div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <h2>Contact Us</h2>
+        <form id="contact-form" action="https://formspree.io/f/mqapyawj" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="tel" name="phone" placeholder="Your Phone" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div id="form-message" class="form-message"></div>
+    </section>
+
+    <div class="fullscreen-overlay" id="fullscreenOverlay">
+        <img id="fullscreenImage" src="" alt="Fullscreen Image">
+    </div>
+
     <a href="tel:0829202766" class="call-now">Call Now</a>
+    <a href="https://wa.me/27829202766" class="whatsapp-btn"><img src="/images/whatsapp.jpg" alt="WhatsApp"></a>
+    <button class="scroll-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+    <footer class="footer"><p>© 2025 Fat Boyz Maintenance | <a href="https://fatboyzfix.co.za">fatboyz.co.za</a> | Onderstepoort, Pretoria, South Africa | 0829202766 | Mon-Fri 09:00-16:00</p></footer>
 
     <script>
+        let whatsappTimeout;
+        document.addEventListener('DOMContentLoaded',()=>{
+            whatsappTimeout=setTimeout(()=>{document.querySelector('.whatsapp-btn').classList.add('visible')},5000);
+        });
+        document.querySelectorAll('nav a').forEach(a=>{
+            a.addEventListener('click',e=>{
+                e.preventDefault();
+                document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});
+                document.querySelectorAll('.nav-links li a').forEach(l=>l.classList.remove('active'));
+                a.classList.add('active');
+                document.querySelector('.nav-links').classList.remove('active');
+                document.querySelector('.menu-toggle').classList.remove('active');
+            });
+        });
+        document.getElementById('contact-form').addEventListener('submit',e=>{
+            e.preventDefault();
+            const f=e.target,m=document.getElementById('form-message'),d=new FormData(f);
+            fetch(f.action,{method:'POST',body:d,headers:{'Accept':'application/json'}})
+                .then(r=>{
+                    if(r.ok){
+                        m.textContent='Message sent! We’ll get back to you soon.';
+                        m.style.color='#C19A6B';
+                        f.reset();
+                    }else{
+                        m.textContent='Error sending message. Please try again.';
+                        m.style.color='#4A6A7A';
+                    }
+                })
+                .catch(()=>{
+                    m.textContent='Error sending message. Please try again.';
+                    m.style.color='#4A6A7A';
+                });
+        });
         window.addEventListener('scroll',()=>{
-            const callNow = document.querySelector('.call-now');
-            if(window.scrollY > 50){
+            const callNow=document.querySelector('.call-now');
+            const whatsappBtn=document.querySelector('.whatsapp-btn');
+            const scrollTop=document.querySelector('.scroll-to-top');
+            if(window.scrollY>50){
                 callNow.classList.add('scrolled');
-            } else {
+                scrollTop.style.opacity='1';
+                scrollTop.style.pointerEvents='auto';
+                clearTimeout(whatsappTimeout);
+                whatsappBtn.classList.add('visible');
+            }else{
                 callNow.classList.remove('scrolled');
+                scrollTop.style.opacity='0';
+                scrollTop.style.pointerEvents='none';
+                clearTimeout(whatsappTimeout);
+                whatsappTimeout=setTimeout(()=>{whatsappBtn.classList.add('visible')},5000);
             }
         });
+        document.querySelector('.menu-toggle').addEventListener('click',()=>{
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.menu-toggle').classList.toggle('active');
+        });
+        document.querySelectorAll('img').forEach(img=>img.addEventListener('contextmenu',e=>e.preventDefault()));
+        const overlay=document.getElementById('fullscreenOverlay');
+        const fullscreenImg=document.getElementById('fullscreenImage');
+        const galleryImages=document.querySelectorAll('.gallery-item img');
+        galleryImages.forEach(img=>{
+            img.addEventListener('click',()=>{
+                fullscreenImg.src=img.src;
+                overlay.style.display='flex';
+            });
+        });
+        overlay.addEventListener('click',()=>{overlay.style.display='none'});
     </script>
 </body>
 </html>
