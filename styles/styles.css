@@ -8,7 +8,7 @@ header { background: #1a2b5f; color: white; position: sticky; top: 0; z-index: 1
 .contact-bar a { color: #ff6200; text-decoration: none; }
 .contact-bar a:hover { text-decoration: underline; }
 nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
-.logo h1 { font-family: 'Montserrat', sans-serif; font-size: 2rem; }
+.logo-img { height: 50px; width: auto; } /* Adjust height as needed */
 nav ul { display: flex; list-style: none; }
 nav ul li { margin-left: 2rem; }
 nav ul li a { color: white; text-decoration: none; font-weight: bold; }
@@ -139,4 +139,5 @@ footer a:hover { text-decoration: underline; }
     nav ul { margin-top: 1rem; }
     nav ul li { margin: 0 1rem; }
     .trust-signals { flex-direction: column; }
+    .logo-img { height: 40px; } /* Smaller logo on mobile */
 }
