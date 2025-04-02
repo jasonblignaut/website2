@@ -71,6 +71,16 @@
             padding: 1rem 3rem;
         }
 
+        .logo-img {
+            height: 60px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-img:hover {
+            transform: rotate(15deg);
+        }
+
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -152,10 +162,20 @@
             position: relative;
         }
 
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding-top: 10vh; /* Push content higher */
+        }
+
         .hero-content img {
             width: 80%;
             max-width: 500px;
             animation: slideIn 1.2s ease-out;
+            margin-bottom: 2rem;
         }
 
         .hero-content p {
@@ -658,6 +678,7 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .hero-content { padding-top: 15vh; } /* Adjust for mobile */
             .hero-content img { width: 90%; max-width: 300px; }
             .hero-content p { font-size: 1.4rem; }
             .hero-content .btn { padding: 1rem 2rem; font-size: 1.1rem; }
@@ -681,6 +702,7 @@
                 text-align: center;
             }
             .trust-signals { flex-direction: column; gap: 1.5rem; }
+            .logo-img { height: 40px; }
             .gallery-item img { height: 150px; }
             .service-card { padding: 1.5rem; }
             .service-thumb { height: 120px; }
@@ -697,16 +719,18 @@
         <div class="contact-bar">
             <p>
                 <span>Onderstepoort, Pretoria, South Africa</span> | 
-                <a href="tel:+270829202766">+27-0829202766</a> | 
+                <a href="tel:0829202766">0829202766</a> | 
                 <a href="mailto:office@fatboyz.co.za">office@fatboyz.co.za</a> | 
-                Mon-Fri 09:00-17:00
+                Mon-Fri 09:00-16:00
             </p>
         </div>
         <nav>
             <div class="logo">
-                <!-- Removed the logo from here -->
+                <a href="#home">
+                    <img src="/images/fbmlogo.png" alt="Fat Boyz Maintenance Logo" class="logo-img">
+                </a>
             </div>
-            <div class="menu-toggle">
+                <div class="menu-toggle">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -766,12 +790,12 @@
             <div class="service-card">
                 <img src="/images/fbmlogo.png" alt="Painting Icon" class="service-icon">
                 <img src="/images/image6.jpg" alt="Painting Thumbnail" class="service-thumb">
-                      <h3>Wall Repairs & Painting</h3>
+                <h3>Wall Repairs & Painting</h3>
                 <p>Cracks fixed, colors popped – walls that wow.</p>
             </div>
             <div class="service-card">
                 <img src="/images/fbmlogo.png" alt="General Icon" class="service-icon">
-                <img src="/images/image7.jpeg" alt="General Thumbnail" class="service-thumb">
+                <img src="/images/image7.jpg" alt="General Thumbnail" class="service-thumb">
                 <h3>And Many More</h3>
                 <p>Boundary walls, gates, carports, ceilings, paving, and general maintenance.</p>
             </div>
@@ -783,25 +807,25 @@
         <h2>Our Work</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="/images/image12.jpeg" alt="Tiling Project">
+                <img src="/images/image12.jpg" alt="Tiling Project">
                 <div class="overlay">
                     <p>Tiling Project</p>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="/images/image13.jpeg" alt="Door Installation">
+                <img src="/images/image13.jpg" alt="Door Installation">
                 <div class="overlay">
                     <p>Door Installation</p>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="/images/image14.jpeg" alt="Wall Painting">
+                <img src="/images/image14.jpg" alt="Wall Painting">
                 <div class="overlay">
                     <p>Wall Painting</p>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="/images/image15.jpeg" alt="General Maintenance">
+                <img src="/images/image15.jpg" alt="General Maintenance">
                 <div class="overlay">
                     <p>General Maintenance</p>
                 </div>
@@ -842,7 +866,7 @@
     </section>
 
     <!-- Sticky Call Now Button -->
-    <a href="tel:+270829202766" class="call-now">Call Now</a>
+    <a href="tel:0829202766" class="call-now">Call Now</a>
 
     <!-- Scroll to Top Button -->
     <button class="scroll-to-top">↑ Top</button>
@@ -866,11 +890,31 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero-content img { width: 90%; max-width: 300px; }
-            .hero-content p { font-size: 1.4rem; }
-            .hero-content .btn { padding: 1rem 2rem; font-size: 1.1rem; }
-            nav { padding: 1rem; }
-            .menu-toggle { display: flex; }
+            .logo-img {
+                height: 40px;
+            }
+            .hero-content {
+                padding-top: 15vh; /* Adjust for mobile */
+            }
+            .hero-content img {
+                width: 90%;
+                max-width: 300px;
+                margin-bottom: 1rem;
+            }
+            .hero-content p {
+                font-size: 1.2rem;
+                margin: 1rem 0;
+            }
+            .hero-content .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            nav {
+                padding: 1rem;
+            }
+            .menu-toggle {
+                display: flex;
+            }
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -888,14 +932,33 @@
                 margin: 0.5rem 0;
                 text-align: center;
             }
-            .trust-signals { flex-direction: column; gap: 1.5rem; }
-            .gallery-item img { height: 150px; }
-            .service-card { padding: 1.5rem; }
-            .service-thumb { height: 120px; }
-            .call-now { padding: 0.8rem 1.5rem; font-size: 1rem; bottom: 80px; }
-            .scroll-to-top { bottom: 20px; }
-            .contact form { max-width: 100%; }
-            .testimonial p { font-size: 1rem; }
+            .trust-signals {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .gallery-item img {
+                height: 150px;
+            }
+            .service-card {
+                padding: 1.5rem;
+            }
+            .service-thumb {
+                height: 120px;
+            }
+            .call-now {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+                bottom: 80px;
+            }
+            .scroll-to-top {
+                bottom: 20px;
+            }
+            .contact form {
+                max-width: 100%;
+            }
+            .testimonial p {
+                font-size: 1rem;
+            }
         }
     </style>
 
