@@ -20,7 +20,57 @@
         .menu-toggle.active span:nth-child(2){opacity:0}.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
         .nav-links{display:flex;gap:2rem;list-style:none}.nav-links li a{color:#FFF;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;padding-bottom:5px}
         .nav-links li a:hover,.nav-links li a.active{color:#C19A6B;border-bottom:2px solid #C19A6B}
-        .hero{background:linear-gradient(135deg,rgba(255,255,255,.5),rgba(200,200,200,.3)),url('/images/onderstepoort.jpg');background-size:cover;background-position:center;background-attachment:scroll;height:100vh;display:flex;justify-content:center;text-align:center;color:#FFF;padding:1rem}
+        .hero{
+            background:
+                /* Subtle brick pattern layer with low opacity */
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(193,154,107,0.1) 0px,
+                    rgba(193,154,107,0.1) 10px,
+                    transparent 10px,
+                    transparent 20px
+                ),
+                repeating-linear-gradient(
+                    135deg,
+                    rgba(193,154,107,0.1) 0px,
+                    rgba(193,154,107,0.1) 10px,
+                    transparent 10px,
+                    transparent 20px
+                ),
+                /* Original gradient overlay */
+                linear-gradient(135deg, rgba(26,37,38,.9), rgba(74,106,122,.7)),
+                /* Background image */
+                url('/images/onderstepoort.jpg');
+            background-size: auto, auto, auto, cover;
+            background-position: center, center, center, center;
+            background-attachment: scroll;
+            background-blend-mode: overlay, overlay, overlay;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            color: #FFF;
+            padding: 1rem;
+        }
+        /* If you have a brick pattern image, you can use this instead:
+        .hero {
+            background:
+                url('/images/brick-pattern.png'),
+                linear-gradient(135deg, rgba(26,37,38,.9), rgba(74,106,122,.7)),
+                url('/images/onderstepoort.jpg');
+            background-size: auto, auto, cover;
+            background-position: center, center, center;
+            background-attachment: scroll;
+            background-blend-mode: overlay, overlay;
+            background-repeat: repeat, no-repeat, no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            color: #FFF;
+            padding: 1rem;
+        }
+        */
         .hero-content{max-width:90%;display:flex;flex-direction:column;align-items:center;padding:0.5rem;margin-top:4rem}.hero-content img{max-width:400px;width:80%;margin-bottom:0.5rem}
         .hero-content h1{font-family:'Montserrat',sans-serif;font-size:2.5rem;font-weight:700;margin-bottom:0.5rem}.hero-content p{font-size:1.2rem;margin-bottom:0.5rem}
         .btn-primary{background:#C19A6B;color:#FFF;padding:0.8rem 1.5rem;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;transition:.3s}
