@@ -8,7 +8,6 @@
     <meta name="author" content="Fat Boyz Maintenance">
     <meta name="robots" content="index, follow">
     <title>Fat Boyz Maintenance | Home Maintenance and Repairs</title>
-    <!-- Open Graph Meta Tags for Link Previews -->
     <meta property="og:title" content="Fat Boyz Maintenance">
     <meta property="og:description" content="Home Maintenance and Repairs. Tiling, door installation, painting, and more.">
     <meta property="og:image" content="/images/fbmlogo.png">
@@ -53,12 +52,12 @@
         .contact input:focus,.contact textarea:focus{outline:none;border-color:#C19A6B;box-shadow:0 0 10px rgba(193,154,107,.2)}
         .contact textarea{resize:vertical}.contact button{background:#C19A6B;color:#FFF;padding:1rem;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700}
         .contact button:hover{background:#4A6A7A;box-shadow:0 0 15px rgba(193,154,107,.5)}.form-message{margin-top:1rem;text-align:center}
-        .call-now{position:fixed;bottom:100px;left:50%;transform:translateX(-50%);background:#C19A6B;color:#FFF;padding:1rem 2rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:1.2rem;box-shadow:0 5px 15px rgba(0,0,0,.2);z-index:9;transition:all .5s ease-in-out}
-        .call-now.scrolled{bottom:20px;left:20px;padding:0;width:50px;height:50px;border-radius:50%;font-size:0;background:#C19A6B url('/images/phone-icon.png') no-repeat center;background-size:30px}
+        .call-now{position:fixed;bottom:100px;right:20px;background:#C19A6B;color:#FFF;padding:1rem 2rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:1.2rem;box-shadow:0 5px 15px rgba(0,0,0,.2);z-index:9;transition:all .5s ease-in-out}
+        .call-now.scrolled{bottom:20px;left:20px;right:auto;padding:0;width:50px;height:50px;border-radius:50%;font-size:0;background:#C19A6B url('/images/phone-icon.png') no-repeat center;background-size:30px}
         .call-now:hover{background:#4A6A7A;box-shadow:0 0 15px rgba(193,154,107,.5)}
-        .whatsapp-btn{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#25D366;color:#FFF;padding:.8rem 1.5rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.9rem;box-shadow:0 5px 15px rgba(0,0,0,.2);z-index:9;transition:all .5s ease-in-out}
-        .whatsapp-btn.scrolled{bottom:80px;left:20px;padding:0;width:50px;height:50px;border-radius:50%;font-size:0;background:#25D366 url('/images/whatsapp.jpg') no-repeat center;background-size:30px}
-        .whatsapp-btn:hover{background:#128C7E;box-shadow:0 0 15px rgba(37,211,102,.5)}
+        .whatsapp-btn{position:fixed;bottom:20px;left:20px;background:#25D366 url('/images/whatsapp.jpg') no-repeat center;background-size:30px;width:50px;height:50px;border-radius:50%;box-shadow:0 5px 15px rgba(0,0,0,.2);z-index:9;opacity:0;transition:opacity .5s ease-in-out}
+        .whatsapp-btn.visible{opacity:1}
+        .whatsapp-btn:hover{background:#128C7E url('/images/whatsapp.jpg') no-repeat center;background-size:30px;box-shadow:0 0 15px rgba(37,211,102,.5)}
         .scroll-to-top{position:fixed;bottom:20px;right:20px;background:#1A2526;color:#FFF;padding:.5rem 1rem;border:none;border-radius:50%;font-size:1rem;box-shadow:0 5px 15px rgba(0,0,0,.2);opacity:0;pointer-events:none}
         footer{background:#1A2526;color:#FFF;text-align:center;padding:1rem}.footer a{color:#C19A6B}
         .hero-content img{filter:drop-shadow(0 0 10px rgba(255,255,255,.7))}
@@ -72,15 +71,13 @@
             .hero-content h1{font-size:1.5rem}.hero-content p{font-size:0.9rem}.hero-content img{max-width:250px}.btn-primary{padding:0.7rem 1.2rem;font-size:0.9rem}
             .hero-content{padding:0.5rem;margin-top:3.5rem}.section h2{font-size:1.8rem}
             .service-card img,.gallery-item img{height:120px}
-            .call-now{bottom:100px;padding:1.2rem 2.5rem;font-size:1.5rem}
-            .whatsapp-btn{bottom:40px;padding:1rem 2rem;font-size:1.2rem}
+            .call-now{right:50%;transform:translateX(50%);padding:1.2rem 2.5rem;font-size:1.5rem}
         }
         @media (max-width:480px){
             .hero-content h1{font-size:1.2rem;margin-bottom:0.3rem}.hero-content p{font-size:0.8rem;margin-bottom:0.3rem}.hero-content img{max-width:200px;margin-bottom:0.3rem}
             .btn-primary{padding:0.6rem 1rem;font-size:0.8rem}.section h2{font-size:1.5rem}
             .hero-content{margin-top:3rem}
             .call-now{bottom:90px;padding:1rem 2rem;font-size:1.2rem}
-            .whatsapp-btn{bottom:30px;padding:.8rem 1.5rem;font-size:1rem}
         }
     </style>
 </head>
@@ -165,11 +162,12 @@
     </div>
 
     <a href="tel:0829202766" class="call-now">Call Now</a>
-    <a href="https://wa.me/27829202766" class="whatsapp-btn">WhatsApp</a>
+    <a href="https://wa.me/27829202766" class="whatsapp-btn"></a>
     <button class="scroll-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
     <footer class="footer"><p>© 2025 Fat Boyz Maintenance | <a href="https://fatboyzfix.co.za">fatboyz.co.za</a> | Onderstepoort, Pretoria, South Africa | 0829202766 | Mon-Fri 09:00-16:00</p></footer>
 
     <script>
+        let whatsappTimeout;
         document.querySelectorAll('nav a').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.nav-links li a').forEach(l=>l.classList.remove('active'));a.classList.add('active');document.querySelector('.nav-links').classList.remove('active');document.querySelector('.menu-toggle').classList.remove('active')})});
         document.getElementById('contact-form').addEventListener('submit',e=>{e.preventDefault();const f=e.target,m=document.getElementById('form-message'),d=new FormData(f);fetch(f.action,{method:'POST',body:d,headers:{'Accept':'application/json'}}).then(r=>{if(r.ok){m.textContent='Message sent! We’ll get back to you soon.';m.style.color='#C19A6B';f.reset()}else{m.textContent='Error sending message. Please try again.';m.style.color='#4A6A7A'}}).catch(()=>{m.textContent='Error sending message. Please try again.';m.style.color='#4A6A7A'})});
         window.addEventListener('scroll',()=>{
@@ -178,14 +176,16 @@
             const scrollTop = document.querySelector('.scroll-to-top');
             if(window.scrollY>50){
                 callNow.classList.add('scrolled');
-                whatsappBtn.classList.add('scrolled');
                 scrollTop.style.opacity='1';
                 scrollTop.style.pointerEvents='auto';
+                clearTimeout(whatsappTimeout);
+                whatsappTimeout=setTimeout(()=>{whatsappBtn.classList.add('visible');},5000);
             }else{
                 callNow.classList.remove('scrolled');
-                whatsappBtn.classList.remove('scrolled');
+                whatsappBtn.classList.remove('visible');
                 scrollTop.style.opacity='0';
                 scrollTop.style.pointerEvents='none';
+                clearTimeout(whatsappTimeout);
             }
         });
         document.querySelector('.menu-toggle').addEventListener('click',()=>{document.querySelector('.nav-links').classList.toggle('active');document.querySelector('.menu-toggle').classList.toggle('active')});
@@ -193,7 +193,7 @@
         const overlay = document.getElementById('fullscreenOverlay');
         const fullscreenImg = document.getElementById('fullscreenImage');
         const galleryImages = document.querySelectorAll('.gallery-item img');
-        galleryImages.forEach((img, index) => {
+        galleryImages.forEach((img) => {
             img.addEventListener('click', () => {
                 fullscreenImg.src = img.src;
                 overlay.style.display = 'flex';
