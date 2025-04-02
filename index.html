@@ -60,10 +60,10 @@
         .call-now.scrolled{opacity:0;pointer-events:none}
         .call-now:hover{background:#4A6A7A;box-shadow:0 0 15px rgba(193,154,107,.5)}
         @media (min-width:769px) {
-    .call-now {
-        display: none;
-    }
-}
+            .call-now {
+                display: none;
+            }
+        }
         .whatsapp-btn{position:fixed;bottom:20px;left:20px;z-index:9;opacity:0;transition:opacity .5s ease-in-out}
         .whatsapp-btn img{width:60px;height:60px}
         .whatsapp-btn.visible{opacity:1}
@@ -83,7 +83,20 @@
             .hero-content h1{font-size:1.5rem}.hero-content p{font-size:0.9rem}.hero-content img{max-width:250px}.btn-primary{padding:0.7rem 1.2rem;font-size:0.9rem}
             .hero-content{padding:0.5rem;margin-top:3.5rem}.section h2{font-size:1.8rem}
             .service-card img,.gallery-item img{height:120px}
-            .call-now{right:50%;transform:translateX(50%);padding:1.2rem 2.5rem;font-size:1.5rem}
+            .call-now{right:50%;transform:translateX(50%);padding:1.2rem 2.5rem;font-size:1.5rem;position:relative;overflow:hidden;animation:pulse 2s infinite ease-in-out}
+            .call-now::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:2px;background:#FFF;box-shadow:0 0 10px rgba(255,255,255,.8);animation:glow-line 4s infinite linear}
+            @keyframes glow-line {
+                0% {left:-100%;top:0}
+                25% {left:100%;top:0}
+                50% {left:100%;top:100%}
+                75% {left:-100%;top:100%}
+                100% {left:-100%;top:0}
+            }
+            @keyframes pulse {
+                0% {transform:translateX(50%) translateY(0)}
+                50% {transform:translateX(50%) translateY(-5px)}
+                100% {transform:translateX(50%) translateY(0)}
+            }
         }
         @media (max-width:480px){
             .hero-content h1{font-size:1.2rem;margin-bottom:0.3rem}.hero-content p{font-size:0.8rem;margin-bottom:0.3rem}.hero-content img{max-width:200px;margin-bottom:0.3rem}
