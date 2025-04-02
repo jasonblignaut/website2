@@ -3,73 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fat Boyz Maintenance - Expert handyman services in Pretoria, South Africa. Tiling, door installation, painting, boundary walls, gates, and more.">
-    <meta name="keywords" content="handyman, home maintenance, repairs, Pretoria, tiling, door installation, painting, boundary walls, gates, South Africa">
+    <meta name="description" content="Fat Boyz Maintenance - Premier handyman services in Pretoria, South Africa. Expert tiling, door installation, painting, and more.">
+    <meta name="keywords" content="handyman, home maintenance, Pretoria, tiling, door installation, painting, boundary walls, gates, South Africa">
     <meta name="author" content="Fat Boyz Maintenance">
     <meta name="robots" content="index, follow">
-    <title>Fat Boyz Maintenance | Handyman Services in Pretoria</title>
+    <title>Fat Boyz Maintenance | Premier Handyman Services in Pretoria</title>
     <link rel="icon" type="image/x-icon" href="/images/fbmlogo.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Open Sans',sans-serif;background:#F5F5F5;color:#2F2F2F;line-height:1.6;overflow-x:hidden}
-        @keyframes fadeIn{0%{opacity:0}100%{opacity:1}}@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
-        header{background:linear-gradient(135deg,#4A3C31,#6B5846);color:#FFF;position:sticky;top:0;z-index:10;transition:background .3s,box-shadow .3s}
-        header.scrolled{background:#FFF;box-shadow:0 2px 10px rgba(0,0,0,.1)}.contact-bar{text-align:center;padding:.5rem;font-size:.9rem;background:rgba(0,0,0,.2);border-bottom:2px solid #D4A017}
-        .contact-bar a{color:#D4A017;text-decoration:none}.contact-bar a:hover{color:#FFF;text-decoration:underline}nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 3rem}
-        .logo-img{height:60px}.menu-toggle{display:none;flex-direction:column;cursor:pointer}.menu-toggle span{width:25px;height:3px;background:#FFF;margin:2px 0;transition:.3s}
-        header.scrolled .menu-toggle span{background:#2F2F2F}.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Lato',sans-serif;background:#F7F7F7;color:#1A2526;line-height:1.6;overflow-x:hidden}
+        a{text-decoration:none}button{cursor:pointer}section{scroll-margin-top:80px}
+        header{background:#1A2526;color:#FFF;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+        nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;max-width:1200px;margin:0 auto}
+        .logo img{height:50px}.menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer}
+        .menu-toggle span{width:30px;height:3px;background:#FFF;transition:.3s}.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
         .menu-toggle.active span:nth-child(2){opacity:0}.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
-        .nav-links{display:flex;list-style:none}.nav-links li{margin-left:2rem}.nav-links li a{color:#FFF;text-decoration:none;font-weight:700;font-family:'Roboto',sans-serif;font-size:1.1rem;position:relative}
-        header.scrolled .nav-links li a{color:#2F2F2F}.nav-links li a::after{content:'';position:absolute;width:0;height:2px;background:#D4A017;bottom:-5px;left:0;transition:width .3s}
-        .nav-links li a:hover::after{width:100%}.nav-links li a:hover{color:#D4A017}
-        .hero{height:100vh;background:linear-gradient(rgba(74,60,49,.7),rgba(107,88,70,.7)),url('/images/HANDYMAN.jpg');background-size:cover;background-position:center;background-attachment:fixed;display:flex;justify-content:center;align-items:center;text-align:center;color:#FFF}
-        .hero-content{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem}.hero-content img{width:60%;max-width:350px;margin-bottom:1rem}
-        .hero-content p{font-size:1.8rem;margin:.5rem 0;padding:0 1rem;text-shadow:2px 2px 8px rgba(0,0,0,.5);font-family:'Roboto',sans-serif;font-weight:700;line-height:1.2}
-        .hero-content .btn{background:linear-gradient(135deg,#D4A017,#E8B923);color:#FFF;padding:1rem 2rem;border:none;border-radius:8px;font-size:1.2rem;cursor:pointer;font-family:'Roboto',sans-serif;font-weight:700;box-shadow:0 5px 15px rgba(0,0,0,.3);transition:transform .3s,box-shadow .3s}
-        .hero-content .btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.4)}
-        .about,.contact,.gallery{padding:5rem 2rem;text-align:center;background:#EDE7E3}.services,.testimonials{padding:5rem 2rem;text-align:center;background:#F5F5F5}
-        .about h2,.services h2,.gallery h2,.testimonials h2,.contact h2{font-family:'Roboto',sans-serif;font-size:2.5rem;margin-bottom:2rem;color:#2F2F2F;position:relative}
-        .about h2::after,.services h2::after,.gallery h2::after,.testimonials h2::after,.contact h2::after{content:'';position:absolute;width:100px;height:4px;background:linear-gradient(135deg,#D4A017,#E8B923);bottom:-10px;left:50%;transform:translateX(-50%)}
-        .about p,.contact p{max-width:800px;margin:0 auto 2rem;font-size:1.1rem}.trust-signals{display:flex;justify-content:center;gap:3rem;margin-top:2rem}
-        .signal{text-align:center}.signal img{width:50px;height:50px}.signal p{margin-top:.5rem;font-size:1rem;color:#2F2F2F}
-        .service-grid,.gallery-grid,.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1200px;margin:0 auto}
-        .service-card{background:#FFF;color:#2F2F2F;padding:2rem;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1);transition:transform .3s,box-shadow .3s;border:2px solid transparent;position:relative}
-        .service-card:hover{transform:translateY(-10px);box-shadow:0 10px 20px rgba(0,0,0,.2);background:linear-gradient(135deg,#FFF,#F5F5F5);background-clip:padding-box}
-        .service-card:hover::before{content:'';position:absolute;top:-2px;left:-2px;right:-2px;bottom:-2px;background:linear-gradient(135deg,#D4A017,#E8B923);z-index:-1;border-radius:10px}
-        .service-thumb{width:100%;height:150px;object-fit:cover;border-radius:5px;margin-bottom:1rem;border:2px solid #D4A017}.service-card:hover .service-thumb{transform:scale(1.05)}
-        .service-card h3{font-family:'Roboto',sans-serif;font-size:1.5rem;margin-bottom:1rem}.service-card p{font-size:1rem}
-        .gallery-item{position:relative;overflow:hidden;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.2)}.gallery-item img{width:100%;height:200px;object-fit:cover;display:block}
-        .overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(74,60,49,.8);display:flex;justify-content:center;align-items:center;opacity:0;transition:opacity .3s}
-        .overlay p{color:#FFF;font-family:'Roboto',sans-serif;font-size:1.4rem;text-shadow:2px 2px 4px rgba(0,0,0,.5)}
-        .testimonial{background:#4A3C31;color:#FFF;padding:2rem;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.2);position:relative}
-        .testimonial p::before{content:'“';font-size:2rem;color:#D4A017;position:absolute;top:10px;left:10px}
-        .testimonial p::after{content:'”';font-size:2rem;color:#D4A017;position:absolute;bottom:10px;right:10px}
-        .testimonial p{font-size:1.2rem;margin-bottom:1rem}.testimonial h4{font-family:'Roboto',sans-serif;font-size:1rem;color:#D4A017}
-        .contact form{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:1.2rem}
-        .contact input,.contact textarea{width:100%;padding:1rem;border:1px solid #2F2F2F;border-radius:5px;font-family:'Open Sans',sans-serif;background:#F5F5F5;color:#2F2F2F}
-        .contact input:focus,.contact textarea:focus{background:#FFF;outline:none}.contact textarea{resize:vertical}
-        .contact button{background:linear-gradient(135deg,#D4A017,#E8B923);color:#FFF;padding:1rem 2rem;border:none;border-radius:5px;cursor:pointer;font-family:'Roboto',sans-serif;font-size:1.2rem}
-        .contact button:hover{transform:translateY(-3px);box-shadow:0 5px 15px rgba(0,0,0,.2)}.form-message{margin-top:1rem;font-size:1rem}
-        .call-now{position:fixed;bottom:100px;right:20px;background:linear-gradient(135deg,#D4A017,#E8B923);color:#FFF;padding:1rem 2rem;border-radius:50px;text-decoration:none;font-family:'Roboto',sans-serif;font-size:1.2rem;box-shadow:0 5px 15px rgba(0,0,0,.3);z-index:9}
-        .call-now:hover{transform:scale(1.05)}.scroll-to-top{position:fixed;bottom:30px;right:20px;background:#4A3C31;color:#FFF;padding:.8rem 1.2rem;border:none;border-radius:50%;cursor:pointer;font-family:'Roboto',sans-serif;font-size:1rem;box-shadow:0 5px 15px rgba(0,0,0,.3);opacity:0;pointer-events:none}
-        footer{text-align:center;padding:1rem;background:#2F2F2F;color:#FFF}.footer a{color:#D4A017;text-decoration:none}
-        @media (max-width:1024px){.hero-content p{font-size:1.6rem}.hero-content .btn{padding:.9rem 1.8rem;font-size:1.1rem}.hero-content img{width:50%;max-width:300px}}
-        @media (max-width:768px){.logo-img{height:40px}.hero-content img{width:45%;max-width:250px}.hero-content p{font-size:1.2rem}.hero-content .btn{padding:.8rem 1.5rem;font-size:1rem}
-        nav{padding:1rem}.menu-toggle{display:flex}.nav-links{display:none;flex-direction:column;position:absolute;top:100%;left:0;width:100%;background:linear-gradient(135deg,#4A3C31,#6B5846);padding:1rem 0}
-        .nav-links.active{display:flex}.nav-links li{margin:.5rem 0;text-align:center}.trust-signals{flex-direction:column;gap:1.5rem}.gallery-item img{height:150px}
-        .service-card{padding:1.5rem}.service-thumb{height:120px}.call-now{padding:.8rem 1.5rem;font-size:1rem;bottom:90px}.scroll-to-top{bottom:20px}.contact form{max-width:100%}}
-        @media (max-width:480px){.hero-content p{font-size:1rem}.hero-content .btn{padding:.7rem 1.2rem;font-size:.9rem}.hero-content img{width:40%;max-width:200px}}
+        .nav-links{display:flex;gap:2rem;list-style:none}.nav-links li a{color:#FFF;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;padding-bottom:5px}
+        .nav-links li a:hover,.nav-links li a.active{color:#C19A6B;border-bottom:2px solid #C19A6B}
+        .hero{background:linear-gradient(rgba(26,37,38,.8),rgba(26,37,38,.8)),url('/images/HANDYMAN.jpg');background-size:cover;background-position:center;background-attachment:fixed;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFF;padding:2rem}
+        .hero-content{max-width:800px}.hero-content img{max-width:300px;width:100%;margin-bottom:1rem}
+        .hero-content h1{font-family:'Montserrat',sans-serif;font-size:2.5rem;font-weight:700;margin-bottom:1rem}.hero-content p{font-size:1.2rem;margin-bottom:1.5rem}
+        .btn-primary{background:#C19A6B;color:#FFF;padding:1rem 2rem;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;transition:.3s}
+        .btn-primary:hover{background:#4A6A7A;transform:translateY(-3px);box-shadow:0 5px 15px rgba(0,0,0,.2)}
+        .section{padding:4rem 2rem}.section h2{font-family:'Montserrat',sans-serif;font-size:2.2rem;color:#1A2526;text-align:center;margin-bottom:3rem}
+        .section h2::after{content:'';display:block;width:80px;height:3px;background:#C19A6B;margin:1rem auto}
+        .about{background:#FFF}.about-content{max-width:800px;margin:0 auto;text-align:center}.about-content p{font-size:1.1rem;margin-bottom:1.5rem}
+        .trust-signals{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:2rem}
+        .signal{text-align:center}.signal img{width:40px;margin-bottom:.5rem}.signal p{font-size:1rem;color:#1A2526}
+        .services{background:#F7F7F7}.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1200px;margin:0 auto}
+        .service-card{background:#FFF;padding:1.5rem;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1);transition:.3s}
+        .service-card:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,.2);border:1px solid #C19A6B}
+        .service-card img{width:100%;height:150px;object-fit:cover;border-radius:5px;margin-bottom:1rem}
+        .service-card h3{font-family:'Montserrat',sans-serif;font-size:1.3rem;color:#1A2526;margin-bottom:.5rem}.service-card p{font-size:.95rem;color:#4A6A7A}
+        .gallery{background:#FFF}.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;max-width:1200px;margin:0 auto}
+        .gallery-item{position:relative;border-radius:5px;overflow:hidden}.gallery-item img{width:100%;height:200px;object-fit:cover}
+        .gallery-item .overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(26,37,38,.8);display:flex;align-items:center;justify-content:center;opacity:0;transition:.3s}
+        .gallery-item:hover .overlay{opacity:1}.overlay p{color:#FFF;font-family:'Montserrat',sans-serif;font-size:1.1rem}
+        .testimonials{background:#F7F7F7}.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1200px;margin:0 auto}
+        .testimonial{background:#FFF;padding:1.5rem;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1);position:relative}
+        .testimonial p{font-size:1rem;color:#1A2526;margin-bottom:1rem}.testimonial h4{font-family:'Montserrat',sans-serif;font-size:.9rem;color:#C19A6B}
+        .contact{background:#FFF}.contact form{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:1rem}
+        .contact input,.contact textarea{width:100%;padding:1rem;border:1px solid #4A6A7A;border-radius:5px;font-family:'Lato',sans-serif;color:#1A2526}
+        .contact input:focus,.contact textarea:focus{outline:none;border-color:#C19A6B}.contact textarea{resize:vertical}
+        .contact button{background:#C19A6B;color:#FFF;padding:1rem;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700}
+        .contact button:hover{background:#4A6A7A}.form-message{margin-top:1rem;text-align:center}
+        .call-now{position:fixed;bottom:80px;right:20px;background:#C19A6B;color:#FFF;padding:.8rem 1.5rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.9rem;box-shadow:0 5px 15px rgba(0,0,0,.2);z-index:9}
+        .call-now:hover{background:#4A6A7A}.scroll-to-top{position:fixed;bottom:20px;right:20px;background:#1A2526;color:#FFF;padding:.5rem 1rem;border:none;border-radius:50%;font-size:1rem;box-shadow:0 5px 15px rgba(0,0,0,.2);opacity:0;pointerEvents:none}
+        footer{background:#1A2526;color:#FFF;text-align:center;padding:1rem}.footer a{color:#C19A6B}
+        @media (max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:#1A2526;padding:1rem 0}.nav-links.active{display:flex;flex-direction:column;gap:1rem}
+        .nav-links li a{padding:1rem;display:block}.menu-toggle{display:flex}.hero-content h1{font-size:1.8rem}.hero-content p{font-size:1rem}
+        .hero-content img{max-width:200px}.btn-primary{padding:.8rem 1.5rem;font-size:.9rem}.section h2{font-size:1.8rem}
+        .service-card img,.gallery-item img{height:120px}.call-now{bottom:70px;padding:.7rem 1.2rem;font-size:.8rem}}
+        @media (max-width:480px){.hero-content h1{font-size:1.5rem}.hero-content p{font-size:.9rem}.hero-content img{max-width:150px}
+        .btn-primary{padding:.7rem 1.2rem;font-size:.8rem}.section h2{font-size:1.5rem}}
     </style>
 </head>
 <body>
-    <header id="header">
-        <div class="contact-bar"><p><span>Onderstepoort, Pretoria, South Africa</span> | <a href="tel:0829202766">0829202766</a> | <a href="mailto:office@fatboyz.co.za">office@fatboyz.co.za</a> | Mon-Fri 09:00-16:00</p></div>
+    <header>
         <nav>
-            <div class="logo"><a href="#home"><img src="/images/fbmlogo.png" alt="Fat Boyz Maintenance Logo" class="logo-img"></a></div>
+            <div class="logo"><a href="#home"><img src="/images/fbmlogo.png" alt="Fat Boyz Maintenance Logo"></a></div>
             <div class="menu-toggle"><span></span><span></span><span></span></div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
@@ -81,31 +77,35 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <img src="/images/fbmlogo.png" alt="Fat Boyz Maintenance Logo">
-            <p>Pretoria’s Best of the Best – Expect RESULTS!</p>
-            <button class="btn" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Get a Free Quote</button>
+            <h1>Premier Handyman Services in Pretoria</h1>
+            <p>Transform your home with expert tiling, painting, door installation, and more. Trust Fat Boyz Maintenance for quality results.</p>
+            <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Get a Free Quote</button>
         </div>
     </section>
 
-    <section id="about" class="about">
+    <section id="about" class="section about">
         <h2>About Us</h2>
-        <p>Caring for a home is a big responsibility. Having the right handyman to help you is even more important. Fat Boyz Maintenance takes care of the things you can’t with a smile. We bring a reliable approach to every job.</p>
-        <div class="trust-signals">
-            <div class="signal"><img src="/images/fbmlogo.png" alt="Fat Boyz Maintenance Logo"><p>Fully Insured & Certified</p></div>
-            <div class="signal"><img src="/images/fbmlogo.png" alt="Fat Boyz Maintenance Logo"><p>Serving Pretoria & Surrounding Areas</p></div>
+        <div class="about-content">
+            <p>At Fat Boyz Maintenance, we understand the importance of a well-maintained home. Based in Pretoria, we offer reliable, high-quality handyman services with a focus on customer satisfaction.</p>
+            <p>From small repairs to large projects, our skilled team delivers exceptional results with a professional touch. Let us handle the hard work so you can enjoy your space.</p>
+            <div class="trust-signals">
+                <div class="signal"><img src="/images/fbmlogo.png" alt="Certified Icon"><p>Fully Insured & Certified</p></div>
+                <div class="signal"><img src="/images/fbmlogo.png" alt="Location Icon"><p>Serving Pretoria & Beyond</p></div>
+            </div>
         </div>
     </section>
 
-    <section id="services" class="services">
+    <section id="services" class="section services">
         <h2>Our Services</h2>
         <div class="service-grid">
-            <div class="service-card"><img src="/images/image4.jpg" alt="Tiling Thumbnail" class="service-thumb"><h3>Tiling</h3><p>Walls to Floors and more...</p></div>
-            <div class="service-card"><img src="/images/image5.jpg" alt="Door Thumbnail" class="service-thumb"><h3>Door Installation</h3><p>Supply, installation, and varnish, your doors, done right.</p></div>
-            <div class="service-card"><img src="/images/image6.jpg" alt="Painting Thumbnail" class="service-thumb"><h3>Wall Repairs & Painting</h3><p>Cracks fixed, colors popped. Expect walls that wow.</p></div>
-            <div class="service-card"><img src="/images/image7.jpg" alt="General Thumbnail" class="service-thumb"><h3>And Many More</h3><p>Boundary walls, gates, carports, ceilings, paving, and general maintenance.</p></div>
+            <div class="service-card"><img src="/images/image4.jpg" alt="Tiling"><h3>Tiling</h3><p>Precision tiling for walls, floors, and more.</p></div>
+            <div class="service-card"><img src="/images/image5.jpg" alt="Door Installation"><h3>Door Installation</h3><p>Expert supply, installation, and finishing.</p></div>
+            <div class="service-card"><img src="/images/image6.jpg" alt="Painting"><h3>Wall Repairs & Painting</h3><p>Flawless repairs and vibrant finishes.</p></div>
+            <div class="service-card"><img src="/images/image7.jpg" alt="General Maintenance"><h3>General Maintenance</h3><p>Gates, carports, ceilings, paving, and more.</p></div>
         </div>
     </section>
 
-    <section id="gallery" class="gallery">
+    <section id="gallery" class="section gallery">
         <h2>Our Work</h2>
         <div class="gallery-grid">
             <div class="gallery-item"><img src="/images/image12.jpg" alt="Tiling Project"><div class="overlay"><p>Tiling Project</p></div></div>
@@ -115,21 +115,21 @@
         </div>
     </section>
 
-    <section id="testimonials" class="testimonials">
+    <section id="testimonials" class="section testimonials">
         <h2>What Our Clients Say</h2>
         <div class="testimonial-grid">
-            <div class="testimonial"><p>Fat Boyz Maintenance completely upgraded my home! Their tiling work is top-notch, and they finished on time.</p><h4>– Sarah M., Pretoria</h4></div>
-            <div class="testimonial"><p>I needed a new gate installed urgently, and the Fat Boyz team delivered beyond my expectations.</p><h4>– Johan K., Onderstepoort</h4></div>
-            <div class="testimonial"><p>Professional, reliable, and friendly. They painted my walls and fixed my ceiling – very highly recommend!</p><h4>– Thandi N., Pretoria</h4></div>
+            <div class="testimonial"><p>"Fat Boyz transformed my home with their tiling expertise. On time and top-notch quality!"</p><h4>– Sarah M., Pretoria</h4></div>
+            <div class="testimonial"><p>"Needed a gate installed fast, and they exceeded expectations. Highly recommend!"</p><h4>– Johan K., Onderstepoort</h4></div>
+            <div class="testimonial"><p>"Professional and friendly. My walls and ceiling look amazing thanks to Fat Boyz!"</p><h4>– Thandi N., Pretoria</h4></div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="contact" class="section contact">
         <h2>Contact Us</h2>
         <form id="contact-form" action="https://formspree.io/f/mqapyawj" method="POST">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="tel" name="phone" placeholder="Phone" required>
-            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="tel" name="phone" placeholder="Your Phone" required>
+            <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
             <button type="submit">Send Message</button>
         </form>
@@ -137,15 +137,13 @@
     </section>
 
     <a href="tel:0829202766" class="call-now">Call Now</a>
-    <button class="scroll-to-top">↑ Top</button>
-    <footer class="footer"><p>© 2025 Fat Boyz Maintenance | <a href="https://fatboyzfix.co.za">fatboyzfix.co.za</a></p></footer>
+    <button class="scroll-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+    <footer class="footer"><p>© 2025 Fat Boyz Maintenance | <a href="https://fatboyzfix.co.za">fatboyzfix.co.za</a> | Onderstepoort, Pretoria, South Africa | 0829202766 | Mon-Fri 09:00-16:00</p></footer>
 
     <script>
-        document.querySelectorAll('nav a').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});document.querySelector('.nav-links').classList.remove('active');document.querySelector('.menu-toggle').classList.remove('active')})});
-        document.getElementById('contact-form').addEventListener('submit',function(e){e.preventDefault();const f=this,m=document.getElementById('form-message'),d=new FormData(f);fetch(f.action,{method:'POST',body:d,headers:{'Accept':'application/json'}}).then(r=>{if(r.ok){m.textContent='Thanks for reaching out! We’ll get back to you soon.';m.style.color='#FFF';m.style.background='#4A3C31';m.style.padding='1rem';m.style.borderRadius='5px';f.reset()}else{m.textContent='Oops! Something went wrong. Please try again.';m.style.color='#D4A017';m.style.background='#F5F5F5';m.style.padding='1rem';m.style.borderRadius='5px'}}).catch(e=>{m.textContent='Oops! Something went wrong. Please try again.';m.style.color='#D4A017';m.style.background='#F5F5F5';m.style.padding='1rem';m.style.borderRadius='5px'}})});
-        document.querySelector('.scroll-to-top').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})});
-        window.addEventListener('scroll',()=>{const s=document.querySelector('.scroll-to-top'),h=document.querySelector('#header');if(window.scrollY>300){s.style.opacity='1';s.style.pointerEvents='auto';h.classList.add('scrolled')}else{s.style.opacity='0';s.style.pointerEvents='none';h.classList.remove('scrolled')}});
-        document.querySelectorAll('.gallery-item').forEach(i=>{i.addEventListener('mouseenter',()=>{i.querySelector('.overlay').style.opacity='1'});i.addEventListener('mouseleave',()=>{i.querySelector('.overlay').style.opacity='0'})});
+        document.querySelectorAll('nav a').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.nav-links li a').forEach(l=>l.classList.remove('active'));a.classList.add('active');document.querySelector('.nav-links').classList.remove('active');document.querySelector('.menu-toggle').classList.remove('active')})});
+        document.getElementById('contact-form').addEventListener('submit',e=>{e.preventDefault();const f=e.target,m=document.getElementById('form-message'),d=new FormData(f);fetch(f.action,{method:'POST',body:d,headers:{'Accept':'application/json'}}).then(r=>{if(r.ok){m.textContent='Message sent! We’ll get back to you soon.';m.style.color='#C19A6B';f.reset()}else{m.textContent='Error sending message. Please try again.';m.style.color='#4A6A7A'}}).catch(()=>{m.textContent='Error sending message. Please try again.';m.style.color='#4A6A7A'})});
+        window.addEventListener('scroll',()=>{document.querySelector('.scroll-to-top').style.opacity=window.scrollY>300?'1':'0';document.querySelector('.scroll-to-top').style.pointerEvents=window.scrollY>300?'auto':'none'});
         document.querySelector('.menu-toggle').addEventListener('click',()=>{document.querySelector('.nav-links').classList.toggle('active');document.querySelector('.menu-toggle').classList.toggle('active')});
     </script>
 </body>
