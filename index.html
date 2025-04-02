@@ -71,16 +71,6 @@
             padding: 1rem 3rem;
         }
 
-        .logo-img {
-            height: 60px;
-            width: auto;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-img:hover {
-            transform: rotate(15deg);
-        }
-
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -162,11 +152,10 @@
             position: relative;
         }
 
-        .hero-content h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 4.5rem;
+        .hero-content img {
+            width: 80%;
+            max-width: 500px;
             animation: slideIn 1.2s ease-out;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
         }
 
         .hero-content p {
@@ -310,7 +299,7 @@
             width: 50px;
             height: 50px;
             margin-bottom: 1rem;
-            animation: hammer 1.5s infinite;
+            animation: hammer 3s infinite; /* Slower animation */
         }
 
         .service-thumb {
@@ -669,7 +658,7 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero-content h1 { font-size: 3rem; }
+            .hero-content img { width: 90%; max-width: 300px; }
             .hero-content p { font-size: 1.4rem; }
             .hero-content .btn { padding: 1rem 2rem; font-size: 1.1rem; }
             nav { padding: 1rem; }
@@ -692,7 +681,6 @@
                 text-align: center;
             }
             .trust-signals { flex-direction: column; gap: 1.5rem; }
-            .logo-img { height: 40px; }
             .gallery-item img { height: 150px; }
             .service-card { padding: 1.5rem; }
             .service-thumb { height: 120px; }
@@ -711,14 +699,12 @@
                 <span>Onderstepoort, Pretoria, South Africa</span> | 
                 <a href="tel:+270829202766">+27-0829202766</a> | 
                 <a href="mailto:office@fatboyz.co.za">office@fatboyz.co.za</a> | 
-                Mon-Fri 09:00-16:00
+                Mon-Fri 09:00-17:00
             </p>
         </div>
         <nav>
             <div class="logo">
-                <a href="#home">
-                    <img src="/images/fbmlogo.png" alt="Fat Boyz Maintenance Logo" class="logo-img">
-                </a>
+                <!-- Removed the logo from here -->
             </div>
             <div class="menu-toggle">
                 <span></span>
@@ -739,7 +725,7 @@
     <!-- Hero Section (Home) -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Fat Boyz Maintenance</h1>
+            <img src="/images/fbmlogo.png" alt="Fat Boyz Maintenance Logo">
             <p>Pretoria’s Trusted Handyman – We Fix It Right!</p>
             <button class="btn" onclick="document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' })">Get a Free Quote</button>
         </div>
@@ -766,26 +752,26 @@
         <h2>Our Services</h2>
         <div class="service-grid">
             <div class="service-card">
-                <img src="/images/image8.jpg" alt="Tiling Icon" class="service-icon">
+                <img src="/images/fbmlogo.png" alt="Tiling Icon" class="service-icon">
                 <img src="/images/image4.jpg" alt="Tiling Thumbnail" class="service-thumb">
                 <h3>Tiling</h3>
                 <p>From your walls to your floors and more – precision tiling that lasts.</p>
             </div>
             <div class="service-card">
-                <img src="/images/image9.jpg" alt="Door Icon" class="service-icon">
+                <img src="/images/fbmlogo.png" alt="Door Icon" class="service-icon">
                 <img src="/images/image5.jpg" alt="Door Thumbnail" class="service-thumb">
                 <h3>Door Installation</h3>
                 <p>Supply, installation, and varnish – your doors, done right.</p>
             </div>
             <div class="service-card">
-                <img src="/images/image10.jpg" alt="Painting Icon" class="service-icon">
+                <img src="/images/fbmlogo.png" alt="Painting Icon" class="service-icon">
                 <img src="/images/image6.jpg" alt="Painting Thumbnail" class="service-thumb">
-                <h3>Wall Repairs & Painting</h3>
+                      <h3>Wall Repairs & Painting</h3>
                 <p>Cracks fixed, colors popped – walls that wow.</p>
             </div>
             <div class="service-card">
-                <img src="/images/image11.jpg" alt="General Icon" class="service-icon">
-                <img src="/images/image7.jpg" alt="General Thumbnail" class="service-thumb">
+                <img src="/images/fbmlogo.png" alt="General Icon" class="service-icon">
+                <img src="/images/image7.jpeg" alt="General Thumbnail" class="service-thumb">
                 <h3>And Many More</h3>
                 <p>Boundary walls, gates, carports, ceilings, paving, and general maintenance.</p>
             </div>
@@ -797,25 +783,25 @@
         <h2>Our Work</h2>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="/images/image12.jpg" alt="Tiling Project">
+                <img src="/images/image12.jpeg" alt="Tiling Project">
                 <div class="overlay">
                     <p>Tiling Project</p>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="/images/image13.jpg" alt="Door Installation">
+                <img src="/images/image13.jpeg" alt="Door Installation">
                 <div class="overlay">
                     <p>Door Installation</p>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="/images/image14.jpg" alt="Wall Painting">
+                <img src="/images/image14.jpeg" alt="Wall Painting">
                 <div class="overlay">
                     <p>Wall Painting</p>
                 </div>
             </div>
             <div class="gallery-item">
-                <img src="/images/image15.jpg" alt="General Maintenance">
+                <img src="/images/image15.jpeg" alt="General Maintenance">
                 <div class="overlay">
                     <p>General Maintenance</p>
                 </div>
@@ -865,6 +851,53 @@
     <footer>
         <p>© 2025 Fat Boyz Maintenance | <a href="https://fatboyzfix.co.za">fatboyzfix.co.za</a></p>
     </footer>
+
+    <!-- Embedded CSS (Continued) -->
+    <style>
+        @keyframes topDown {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content img { width: 90%; max-width: 300px; }
+            .hero-content p { font-size: 1.4rem; }
+            .hero-content .btn { padding: 1rem 2rem; font-size: 1.1rem; }
+            nav { padding: 1rem; }
+            .menu-toggle { display: flex; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #8A8A5C; /* Khaki Green */
+                padding: 1rem 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                margin: 0.5rem 0;
+                text-align: center;
+            }
+            .trust-signals { flex-direction: column; gap: 1.5rem; }
+            .gallery-item img { height: 150px; }
+            .service-card { padding: 1.5rem; }
+            .service-thumb { height: 120px; }
+            .call-now { padding: 0.8rem 1.5rem; font-size: 1rem; bottom: 80px; }
+            .scroll-to-top { bottom: 20px; }
+            .contact form { max-width: 100%; }
+            .testimonial p { font-size: 1rem; }
+        }
+    </style>
 
     <!-- Embedded JavaScript -->
     <script>
