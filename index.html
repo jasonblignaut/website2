@@ -11,7 +11,7 @@
     <link rel="icon" type="image/x-icon" href="/images/fbmlogo.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Lato',sans-serif;background:#F7F7F7;color:#1A2526;line-height:1.6;overflow-x:hidden}
+        *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Lato',sans-serif;background:#F7F7F7;color:#1A2526;line-height:1.6;overflow-x:hidden}
         a{text-decoration:none}button{cursor:pointer}section{scroll-margin-top:80px}
         header{background:#1A2526;color:#FFF;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.1)}
         nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;max-width:1200px;margin:0 auto}
@@ -20,35 +20,41 @@
         .menu-toggle.active span:nth-child(2){opacity:0}.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
         .nav-links{display:flex;gap:2rem;list-style:none}.nav-links li a{color:#FFF;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;padding-bottom:5px}
         .nav-links li a:hover,.nav-links li a.active{color:#C19A6B;border-bottom:2px solid #C19A6B}
-        .hero{background:linear-gradient(rgba(26,37,38,.8),rgba(26,37,38,.8)),url('/images/onderstepoort.jpg');background-size:cover;background-position:center;background-attachment:fixed;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFF;padding:2rem}
-        .hero-content{max-width:800px}.hero-content img{max-width:300px;width:100%;margin-bottom:1rem}
+        .hero{background:linear-gradient(135deg,rgba(26,37,38,.9),rgba(74,106,122,.7)),url('/images/onderstepoort.jpg');background-size:cover;background-position:center;background-attachment:fixed;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#FFF;padding:2rem}
+        .hero-content{max-width:800px;opacity:0;transform:translateY(30px);transition:opacity 1s ease,transform 1s ease}
+        .hero-content.visible{opacity:1;transform:translateY(0)}.hero-content img{max-width:300px;width:100%;margin-bottom:1rem}
         .hero-content h1{font-family:'Montserrat',sans-serif;font-size:2.5rem;font-weight:700;margin-bottom:1rem}.hero-content p{font-size:1.2rem;margin-bottom:1.5rem}
         .btn-primary{background:#C19A6B;color:#FFF;padding:1rem 2rem;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;transition:.3s}
-        .btn-primary:hover{background:#4A6A7A;transform:translateY(-3px);box-shadow:0 5px 15px rgba(0,0,0,.2)}
-        .section{padding:4rem 2rem}.section h2{font-family:'Montserrat',sans-serif;font-size:2.2rem;color:#1A2526;text-align:center;margin-bottom:3rem}
+        .btn-primary:hover{background:#4A6A7A;transform:translateY(-3px);box-shadow:0 0 15px rgba(193,154,107,.5)}
+        .section{padding:4rem 2rem;opacity:0;transform:translateY(50px);transition:opacity 0.8s ease,transform 0.8s ease}
+        .section.visible{opacity:1;transform:translateY(0)}.section h2{font-family:'Montserrat',sans-serif;font-size:2.2rem;color:#1A2526;text-align:center;margin-bottom:3rem}
         .section h2::after{content:'';display:block;width:80px;height:3px;background:#C19A6B;margin:1rem auto}
         .about{background:#FFF}.about-content{max-width:800px;margin:0 auto;text-align:center}.about-content p{font-size:1.1rem;margin-bottom:1.5rem}
         .trust-signals{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:2rem}
-        .signal{text-align:center}.signal img{width:40px;margin-bottom:.5rem}.signal p{font-size:1rem;color:#1A2526}
+        .signal{text-align:center;opacity:0;transform:translateY(20px);transition:opacity 0.5s ease,transform 0.5s ease}
+        .signal.visible{opacity:1;transform:translateY(0)}.signal img{width:40px;margin-bottom:.5rem}.signal p{font-size:1rem;color:#1A2526}
         .services{background:#F7F7F7}.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1200px;margin:0 auto}
-        .service-card{background:#FFF;padding:1.5rem;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1);transition:.3s}
-        .service-card:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,.2);border:1px solid #C19A6B}
+        .service-card{background:#FFF;padding:1.5rem;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1);transition:.3s;opacity:0;transform:translateY(30px)}
+        .service-card.visible{opacity:1;transform:translateY(0)}.service-card:hover{transform:translateY(-5px);box-shadow:0 0 20px rgba(193,154,107,.3);border:1px solid #C19A6B}
         .service-card img{width:100%;height:150px;object-fit:cover;border-radius:5px;margin-bottom:1rem}
         .service-card h3{font-family:'Montserrat',sans-serif;font-size:1.3rem;color:#1A2526;margin-bottom:.5rem}.service-card p{font-size:.95rem;color:#4A6A7A}
         .gallery{background:#FFF}.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;max-width:1200px;margin:0 auto}
-        .gallery-item{position:relative;border-radius:5px;overflow:hidden}.gallery-item img{width:100%;height:200px;object-fit:cover}
-        .gallery-item .overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(26,37,38,.8);display:flex;align-items:center;justify-content:center;opacity:0;transition:.3s}
+        .gallery-item{position:relative;border-radius:5px;overflow:hidden;opacity:0;transform:translateY(30px);transition:opacity 0.5s ease,transform 0.5s ease}
+        .gallery-item.visible{opacity:1;transform:translateY(0)}.gallery-item img{width:100%;height:200px;object-fit:cover}
+        .gallery-item .overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(26,37,38,.8),rgba(74,106,122,.6));display:flex;align-items:center;justify-content:center;opacity:0;transition:.3s}
         .gallery-item:hover .overlay{opacity:1}.overlay p{color:#FFF;font-family:'Montserrat',sans-serif;font-size:1.1rem}
         .testimonials{background:#F7F7F7}.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1200px;margin:0 auto}
-        .testimonial{background:#FFF;padding:1.5rem;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1);position:relative}
-        .testimonial p{font-size:1rem;color:#1A2526;margin-bottom:1rem}.testimonial h4{font-family:'Montserrat',sans-serif;font-size:.9rem;color:#C19A6B}
+        .testimonial{background:#FFF;padding:1.5rem;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1);opacity:0;transform:translateY(30px);transition:opacity 0.5s ease,transform 0.5s ease}
+        .testimonial.visible{opacity:1;transform:translateY(0)}.testimonial p{font-size:1rem;color:#1A2526;margin-bottom:1rem}
+        .testimonial h4{font-family:'Montserrat',sans-serif;font-size:.9rem;color:#C19A6B}
         .contact{background:#FFF}.contact form{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:1rem}
         .contact input,.contact textarea{width:100%;padding:1rem;border:1px solid #4A6A7A;border-radius:5px;font-family:'Lato',sans-serif;color:#1A2526}
-        .contact input:focus,.contact textarea:focus{outline:none;border-color:#C19A6B}.contact textarea{resize:vertical}
-        .contact button{background:#C19A6B;color:#FFF;padding:1rem;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700}
-        .contact button:hover{background:#4A6A7A}.form-message{margin-top:1rem;text-align:center}
+        .contact input:focus,.contact textarea:focus{outline:none;border-color:#C19A6B;box-shadow:0 0 10px rgba(193,154,107,.2)}
+        .contact textarea{resize:vertical}.contact button{background:#C19A6B;color:#FFF;padding:1rem;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700}
+        .contact button:hover{background:#4A6A7A;box-shadow:0 0 15px rgba(193,154,107,.5)}.form-message{margin-top:1rem;text-align:center}
         .call-now{position:fixed;bottom:80px;right:20px;background:#C19A6B;color:#FFF;padding:.8rem 1.5rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:.9rem;box-shadow:0 5px 15px rgba(0,0,0,.2);z-index:9}
-        .call-now:hover{background:#4A6A7A}.scroll-to-top{position:fixed;bottom:20px;right:20px;background:#1A2526;color:#FFF;padding:.5rem 1rem;border:none;border-radius:50%;font-size:1rem;box-shadow:0 5px 15px rgba(0,0,0,.2);opacity:0;pointerEvents:none}
+        .call-now:hover{background:#4A6A7A;box-shadow:0 0 15px rgba(193,154,107,.5)}
+        .scroll-to-top{position:fixed;bottom:20px;right:20px;background:#1A2526;color:#FFF;padding:.5rem 1rem;border:none;border-radius:50%;font-size:1rem;box-shadow:0 5px 15px rgba(0,0,0,.2);opacity:0;pointer-events:none}
         footer{background:#1A2526;color:#FFF;text-align:center;padding:1rem}.footer a{color:#C19A6B}
         @media (max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:#1A2526;padding:1rem 0}.nav-links.active{display:flex;flex-direction:column;gap:1rem}
         .nav-links li a{padding:1rem;display:block}.menu-toggle{display:flex}.hero-content h1{font-size:1.8rem}.hero-content p{font-size:1rem}
@@ -109,42 +115,4 @@
         <h2>Our Work</h2>
         <div class="gallery-grid">
             <div class="gallery-item"><img src="/images/image12.jpg" alt="Tiling Project"><div class="overlay"><p>Tiling Project</p></div></div>
-            <div class="gallery-item"><img src="/images/image13.jpg" alt="Door Installation"><div class="overlay"><p>Door Installation</p></div></div>
-            <div class="gallery-item"><img src="/images/image14.jpg" alt="Wall Painting"><div class="overlay"><p>Wall Painting</p></div></div>
-            <div class="gallery-item"><img src="/images/image15.jpg" alt="General Maintenance"><div class="overlay"><p>General Maintenance</p></div></div>
-        </div>
-    </section>
-
-    <section id="testimonials" class="section testimonials">
-        <h2>What Our Clients Say</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial"><p>"Fat Boyz transformed my home with their tiling expertise. On time and top-notch quality!"</p><h4>– Sarah M., Pretoria</h4></div>
-            <div class="testimonial"><p>"Needed a gate installed fast, and they exceeded expectations. Highly recommend!"</p><h4>– Johan K., Onderstepoort</h4></div>
-            <div class="testimonial"><p>"Professional and friendly. My walls and ceiling look amazing thanks to Fat Boyz!"</p><h4>– Thandi N., Pretoria</h4></div>
-        </div>
-    </section>
-
-    <section id="contact" class="section contact">
-        <h2>Contact Us</h2>
-        <form id="contact-form" action="https://formspree.io/f/mqapyawj" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="tel" name="phone" placeholder="Your Phone" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <div id="form-message" class="form-message"></div>
-    </section>
-
-    <a href="tel:0829202766" class="call-now">Call Now</a>
-    <button class="scroll-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-    <footer class="footer"><p>© 2025 Fat Boyz Maintenance | <a href="https://fatboyzfix.co.za">fatboyzfix.co.za</a> | Onderstepoort, Pretoria, South Africa | 0829202766 | Mon-Fri 09:00-16:00</p></footer>
-
-    <script>
-        document.querySelectorAll('nav a').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.nav-links li a').forEach(l=>l.classList.remove('active'));a.classList.add('active');document.querySelector('.nav-links').classList.remove('active');document.querySelector('.menu-toggle').classList.remove('active')})});
-        document.getElementById('contact-form').addEventListener('submit',e=>{e.preventDefault();const f=e.target,m=document.getElementById('form-message'),d=new FormData(f);fetch(f.action,{method:'POST',body:d,headers:{'Accept':'application/json'}}).then(r=>{if(r.ok){m.textContent='Message sent! We’ll get back to you soon.';m.style.color='#C19A6B';f.reset()}else{m.textContent='Error sending message. Please try again.';m.style.color='#4A6A7A'}}).catch(()=>{m.textContent='Error sending message. Please try again.';m.style.color='#4A6A7A'})});
-        window.addEventListener('scroll',()=>{document.querySelector('.scroll-to-top').style.opacity=window.scrollY>300?'1':'0';document.querySelector('.scroll-to-top').style.pointerEvents=window.scrollY>300?'auto':'none'});
-        document.querySelector('.menu-toggle').addEventListener('click',()=>{document.querySelector('.nav-links').classList.toggle('active');document.querySelector('.menu-toggle').classList.toggle('active')});
-    </script>
-</body>
-</html>
+            <div class="gallery-item"><img src="/images/image13.jpg" alt="Door Installation"><div class="overlay
