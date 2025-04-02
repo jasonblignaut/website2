@@ -37,12 +37,29 @@
             top: 0;
             z-index: 10;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: opacity 0.3s ease;
+            transition: opacity 0.3s ease, background 0.3s ease;
         }
 
         header.hidden {
             opacity: 0;
             pointer-events: none;
+        }
+
+        header.scrolled {
+            background: #FFFFFF; /* White background when scrolled */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header.scrolled .nav-links li a {
+            color: #2F2F2F; /* Dark Charcoal for readability */
+        }
+
+        header.scrolled .nav-links li a:hover {
+            color: #D4A017; /* Mustard Yellow on hover */
+        }
+
+        header.scrolled .menu-toggle span {
+            background: #2F2F2F; /* Dark Charcoal for hamburger menu */
         }
 
         .contact-bar {
@@ -150,10 +167,10 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(74, 60, 49, 0.7), rgba(107, 88, 70, 0.7)), url('/images/onderstepoort.jpg');
+            background: linear-gradient(rgba(74, 60, 49, 0.7), rgba(107, 88, 70, 0.7)), url('/images/HANDYMAN.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
+            background-attachment: fixed; /* Fixed background for smooth scrolling */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -168,34 +185,35 @@
             align-items: center;
             justify-content: center;
             height: 100%;
-            padding-top: 2vh; /* Further reduced to ensure button visibility */
-            padding-bottom: 2vh; /* Added to balance spacing */
+            padding-top: 2vh; /* Reduced to ensure button visibility */
+            padding-bottom: 2vh;
+            opacity: 0;
+            animation: fadeIn 1.5s ease forwards; /* Fancy fade-in animation */
         }
 
         .hero-content img {
-            width: 70%; /* Slightly reduced to fit better */
-            max-width: 400px; /* Reduced max-width for better fit */
-            animation: slideIn 1.2s ease-out;
-            margin-bottom: 1rem; /* Reduced margin */
+            width: 70%;
+            max-width: 400px;
+            margin-bottom: 1rem;
         }
 
         .hero-content p {
-            font-size: 1.8rem; /* Slightly smaller to fit better */
-            margin: 0.5rem 0; /* Reduced margin */
-            padding: 0 1rem; /* Prevent text overflow */
+            font-size: 1.8rem;
+            margin: 0.5rem 0;
+            padding: 0 1rem;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
             font-family: 'Roboto', sans-serif;
             font-weight: 700;
-            line-height: 1.2; /* Tighter line height for better fit */
+            line-height: 1.2;
         }
 
         .hero-content .btn {
             background: linear-gradient(135deg, #D4A017, #E8B923); /* Mustard Yellow Gradient */
             color: #FFFFFF; /* White */
-            padding: 1rem 2rem; /* Slightly smaller padding */
+            padding: 1rem 2rem;
             border: none;
             border-radius: 8px;
-            font-size: 1.2rem; /* Slightly smaller font */
+            font-size: 1.2rem;
             cursor: pointer;
             font-family: 'Roboto', sans-serif;
             font-weight: 700;
@@ -306,25 +324,35 @@
         }
 
         .service-card {
-            background: #4A3C31; /* Rich Brown */
-            color: #FFFFFF; /* White */
+            background: #FFFFFF; /* White for a modern, professional look */
+            color: #2F2F2F; /* Dark Charcoal for readability */
             padding: 2rem;
             border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
             position: relative;
             overflow: hidden;
+            border: 2px solid transparent;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border: 2px solid transparent;
+            background: linear-gradient(135deg, #FFFFFF, #F5F5F5); /* Subtle gradient on hover */
+            background-clip: padding-box;
         }
 
-        .service-icon {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 1rem;
-            animation: hammer 3s infinite;
+        .service-card:hover::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #D4A017, #E8B923); /* Gradient border on hover */
+            z-index: -1;
+            border-radius: 10px;
         }
 
         .service-thumb {
@@ -334,7 +362,7 @@
             border-radius: 5px;
             margin-bottom: 1rem;
             transition: transform 0.3s;
-            border: 2px solid #FFFFFF; /* White */
+            border: 2px solid #D4A017; /* Mustard Yellow border */
         }
 
         .service-card:hover .service-thumb {
@@ -584,7 +612,7 @@
         /* Sticky Call Now Button */
         .call-now {
             position: fixed;
-            bottom: 100px; /* Adjusted to avoid overlap */
+            bottom: 100px;
             right: 20px;
             background: linear-gradient(135deg, #D4A017, #E8B923); /* Mustard Yellow Gradient */
             color: #FFFFFF; /* White */
@@ -606,7 +634,7 @@
         /* Scroll to Top Button */
         .scroll-to-top {
             position: fixed;
-            bottom: 30px; /* Adjusted to avoid overlap */
+            bottom: 30px;
             right: 20px;
             background: #4A3C31; /* Rich Brown */
             color: #FFFFFF; /* White */
@@ -620,12 +648,10 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s, transform 0.3s;
-            z-index: 10;
         }
 
         .scroll-to-top:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         /* Footer */
@@ -633,11 +659,7 @@
             background: #2F2F2F; /* Dark Charcoal */
             color: #FFFFFF; /* White */
             text-align: center;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 1rem;
         }
 
         footer a {
@@ -647,14 +669,13 @@
         }
 
         footer a:hover {
-            color: #FFFFFF; /* White */
-            text-decoration: underline;
+            color: #E8B923; /* Lighter Mustard Yellow */
         }
 
         /* Animations */
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         @keyframes pulse {
@@ -663,321 +684,15 @@
             100% { transform: scale(1); }
         }
 
-        @keyframes hammer {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(15deg); }
-            50% { transform: rotate(0deg); }
-            75% { transform: rotate(-15deg); }
-            100% { transform: rotate(0deg); }
-        }
-
         @keyframes topDown {
             0% { opacity: 0; transform: translateY(-20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
         /* Responsive Design */
         @media (max-width: 1024px) {
             .hero-content p {
-                font-size: 1.6rem; /* Slightly smaller for tablets */
-                margin: 0.5rem 0;
-            }
-            .hero-content .btn {
-                padding: 0.9rem 1.8rem;
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .logo-img {
-                height: 40px;
-            }
-            .hero-content {
-                padding-top: 5vh; /* Further reduced for mobile */
-                padding-bottom: 5vh;
-            }
-            .hero-content img {
-                width: 80%;
-                max-width: 300px;
-                margin-bottom: 0.8rem;
-            }
-            .hero-content p {
-                font-size: 1.3rem; /* Smaller for mobile */
-                margin: 0.3rem 0;
-                padding: 0 1rem;
-                line-height: 1.2;
-            }
-            .hero-content .btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
-            }
-            nav {
-                padding: 1rem;
-            }
-            .menu-toggle {
-                display: flex;
-            }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: linear-gradient(135deg, #4A3C31, #6B5846); /* Rich Brown Gradient */
-                padding: 1rem 0;
-            }
-            .nav-links.active {
-                display: flex;
-            }
-            .nav-links li {
-                margin: 0.5rem 0;
-                text-align: center;
-            }
-            .trust-signals {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            .gallery-item img {
-                height: 150px;
-            }
-            .service-card {
-                padding: 1.5rem;
-            }
-            .service-thumb {
-                height: 120px;
-            }
-            .call-now {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
-                bottom: 90px; /* Adjusted for mobile */
-            }
-            .scroll-to-top {
-                bottom: 20px;
-            }
-            .contact form {
-                max-width: 100%;
-            }
-            .testimonial p {
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content p {
-                font-size: 1.1rem; /* Even smaller for small mobile screens */
-                margin: 0.2rem 0;
-                padding: 0 0.5rem;
-            }
-            .hero-content .btn {
-                padding: 0.7rem 1.2rem;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
-</head>
-<body>
-        <div class="contact-bar">
-            <p>
-                <span>Onderstepoort, Pretoria, South Africa</span> | 
-                <a href="tel:0829202766">0829202766</a> | 
-                <a href="mailto:office@fatboyz.co.za">office@fatboyz.co.za</a> | 
-                Mon-Fri 09:00-16:00
-            </p>
-        </div>
-        <nav>
-            <div class="logo">
-                <a href="#home">
-                    <img src="/images/fbmlogo.png" alt="Fat Boyz Maintenance Logo" class="logo-img">
-                </a>
-            </div>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Hero Section (Home) -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <img src="/images/fbmlogo.png" alt="Fat Boyz Maintenance Logo">
-            <p>Pretoria’s Best of the Best – Expect RESULTS!</p>
-            <button class="btn" onclick="document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' })">Get a Free Quote</button>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
-    <section id="about" class="about">
-        <h2>About Us</h2>
-        <p>Caring for a home is a big responsibility. Having the right handyman to help you is even more important. Fat Boyz Maintenance takes care of the things you can’t with a smile. We bring a reliable approach to every job.</p>
-        <div class="trust-signals">
-            <div class="signal">
-                <img src="/images/fbmlogo.png" alt="Fat Boyz Maintenance Logo">
-                <p>Fully Insured & Certified</p>
-            </div>
-            <div class="signal">
-                <img src="/images/fbmlogo.png" alt="Fat Boyz Maintenance Logo">
-                <p>Serving Pretoria & Surrounding Areas</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <h2>Our Services</h2>
-        <div class="service-grid">
-            <div class="service-card">
-                <img src="/images/fbmlogo.png" alt="Tiling Icon" class="service-icon">
-                <img src="/images/image4.jpg" alt="Tiling Thumbnail" class="service-thumb">
-                <h3>Tiling</h3>
-                <p>Walls to Floors and more...</p>
-            </div>
-            <div class="service-card">
-                <img src="/images/fbmlogo.png" alt="Door Icon" class="service-icon">
-                <img src="/images/image5.jpg" alt="Door Thumbnail" class="service-thumb">
-                <h3>Door Installation</h3>
-                <p>Supply, installation, and varnish, your doors, done right.</p>
-            </div>
-            <div class="service-card">
-                <img src="/images/fbmlogo.png" alt="Painting Icon" class="service-icon">
-                <img src="/images/image6.jpg" alt="Painting Thumbnail" class="service-thumb">
-                <h3>Wall Repairs & Painting</h3>
-                <p>Cracks fixed, colors popped. Expect walls that wow.</p>
-            </div>
-            <div class="service-card">
-                <img src="/images/fbmlogo.png" alt="General Icon" class="service-icon">
-                <img src="/images/image7.jpg" alt="General Thumbnail" class="service-thumb">
-                <h3>And Many More</h3>
-                <p>Boundary walls, gates, carports, ceilings, paving, and general maintenance.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
-        <h2>Our Work</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <img src="/images/image12.jpg" alt="Tiling Project">
-                <div class="overlay">
-                    <p>Tiling Project</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="/images/image13.jpg" alt="Door Installation">
-                <div class="overlay">
-                    <p>Door Installation</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="/images/image14.jpg" alt="Wall Painting">
-                <div class="overlay">
-                    <p>Wall Painting</p>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="/images/image15.jpg" alt="General Maintenance">
-                <div class="overlay">
-                    <p>General Maintenance</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <h2>What Our Clients Say</h2>
-        <div class="testimonial-grid">
-            <div class="testimonial">
-                <p>Fat Boyz Maintenance completely upgraded my home! Their tiling work is top-notch, and they finished on time.</p>
-                <h4>– Sarah M., Pretoria</h4>
-            </div>
-            <div class="testimonial">
-                <p>I needed a new gate installed urgently, and the Fat Boyz team delivered beyond my expectations.</p>
-                <h4>– Johan K., Onderstepoort</h4>
-            </div>
-            <div class="testimonial">
-                <p>Professional, reliable, and friendly. They painted my walls and fixed my ceiling – very highly recommend!</p>
-                <h4>– Thandi N., Pretoria</h4>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2>Contact Us</h2>
-        <form id="contact-form" action="https://formspree.io/f/mqapyawj" method="POST">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="tel" name="phone" placeholder="Phone" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <textarea name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <div id="form-message" class="form-message"></div>
-    </section>
-
-    <!-- Sticky Call Now Button -->
-    <a href="tel:0829202766" class="call-now">Call Now</a>
-
-    <!-- Scroll to Top Button -->
-    <button class="scroll-to-top">↑ Top</button>
-
-    <!-- Footer -->
-    <footer>
-        <p>© 2025 Fat Boyz Maintenance | <a href="https://fatboyzfix.co.za">fatboyzfix.co.za</a></p>
-    </footer>
-
-    <!-- Embedded CSS (Continued) -->
-    <style>
-        /* Animations */
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes hammer {
-            0% { transform: rotate(0deg); }
-            25% { transform: rotate(15deg); }
-            50% { transform: rotate(0deg); }
-            75% { transform: rotate(-15deg); }
-            100% { transform: rotate(0deg); }
-        }
-
-        @keyframes topDown {
-            0% { opacity: 0; transform: translateY(-20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero-content p {
-                font-size: 1.6rem; /* Slightly smaller for tablets */
+                font-size: 1.6rem;
                 margin: 0.4rem 0;
             }
             .hero-content .btn {
@@ -995,7 +710,7 @@
                 height: 40px;
             }
             .hero-content {
-                padding-top: 5vh; /* Adjusted for mobile */
+                padding-top: 5vh;
                 padding-bottom: 5vh;
             }
             .hero-content img {
@@ -1004,7 +719,7 @@
                 margin-bottom: 0.8rem;
             }
             .hero-content p {
-                font-size: 1.2rem; /* Smaller for mobile */
+                font-size: 1.2rem;
                 margin: 0.3rem 0;
                 padding: 0 1rem;
                 line-height: 1.2;
@@ -1026,7 +741,7 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: linear-gradient(135deg, #4A3C31, #6B5846); /* Rich Brown Gradient */
+                background: linear-gradient(135deg, #4A3C31, #6B5846);
                 padding: 1rem 0;
             }
             .nav-links.active {
@@ -1052,7 +767,7 @@
             .call-now {
                 padding: 0.8rem 1.5rem;
                 font-size: 1rem;
-                bottom: 90px; /* Adjusted for mobile */
+                bottom: 90px;
             }
             .scroll-to-top {
                 bottom: 20px;
@@ -1066,11 +781,7 @@
         }
 
         @media (max-width: 480px) {
-            .hero-content p {
-                font-size: 1rem; /* Even smaller for small mobile screens */
-                margin: 0.2rem 0;
-                padding: 0 0.5rem;
-            }
+              }
             .hero-content .btn {
                 padding: 0.7rem 1.2rem;
                 font-size: 0.9rem;
@@ -1166,10 +877,12 @@
                 scrollToTop.style.opacity = '1';
                 scrollToTop.style.pointerEvents = 'auto';
                 header.classList.add('hidden'); // Fade out header when scrolling down
+                header.classList.add('scrolled'); // Change header background to white
             } else {
                 scrollToTop.style.opacity = '0';
                 scrollToTop.style.pointerEvents = 'none';
                 header.classList.remove('hidden'); // Fade in header when at the top
+                header.classList.remove('scrolled'); // Revert header background
             }
         });
 
@@ -1181,13 +894,6 @@
             item.addEventListener('mouseleave', () => {
                 item.querySelector('.overlay').style.opacity = '0';
             });
-        });
-
-        // Parallax Effect for Hero
-        window.addEventListener('scroll', () => {
-            const hero = document.querySelector('.hero');
-            const scrollPosition = window.pageYOffset;
-            hero.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
         });
 
         // Menu Toggle for Mobile
