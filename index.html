@@ -8,12 +8,19 @@
     <meta name="author" content="Fat Boyz Maintenance">
     <meta name="robots" content="index, follow">
     <title>Fat Boyz Maintenance | Home Maintenance and Repairs</title>
+    <!-- Open Graph Meta Tags for Link Previews -->
+    <meta property="og:title" content="Fat Boyz Maintenance">
+    <meta property="og:description" content="Home Maintenance and Repairs. Tiling, door installation, painting, and more.">
+    <meta property="og:image" content="/images/fbmlogo.png">
+    <meta property="og:url" content="https://fatboyzfix.co.za">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="/images/fbmlogo.png">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Lato',sans-serif;background:#F7F7F7;color:#1A2526;line-height:1.6;overflow-x:hidden}
         a{text-decoration:none}button{cursor:pointer}section{scroll-margin-top:80px}
         header{background:#1A2526;color:#FFF;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.1)}
-        nav{display:flex;justify-content:center;align-items:center;padding:1rem 2rem;max-width:1200px;margin:0 auto}
+        nav{display:flex;justify-content:center;align-items:center;padding:1rem 2rem;max-width:1200px;margin:0 auto;position:relative}
         .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer}
         .menu-toggle span{width:30px;height:3px;background:#FFF;transition:.3s}.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
         .menu-toggle.active span:nth-child(2){opacity:0}.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
@@ -32,7 +39,7 @@
         .services{background:#F7F7F7}.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1200px;margin:0 auto}
         .service-card{background:#FFF;padding:1.5rem;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1);transition:.3s}
         .service-card:hover{transform:translateY(-5px);box-shadow:0 0 20px rgba(193,154,107,.3);border:1px solid #C19A6B}
-        .service-card img{width:100%;height:150px;object-fit:cover;border-radius:5px;margin-bottom:1rem}
+        .service-card img{width:100%;height:150px;object-fix t:cover;border-radius:5px;margin-bottom:1rem}
         .service-card h3{font-family:'Montserrat',sans-serif;font-size:1.3rem;color:#1A2526;margin-bottom:.5rem}.service-card p{font-size:.95rem;color:#4A6A7A}
         .gallery{background:#FFF}.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;max-width:1200px;margin:0 auto}
         .gallery-item{position:relative;border-radius:5px;overflow:hidden}.gallery-item img{width:100%;height:200px;object-fit:cover;cursor:pointer}
@@ -78,15 +85,23 @@
         }
         @media (max-width:768px){
             .nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:#1A2526;padding:1rem 0}.nav-links.active{display:flex;flex-direction:column;gap:1rem}
-            .nav-links li a{padding:1rem;display:block}.menu-toggle{display:flex}
+            .nav-links li a{padding:1rem;display:block}
+            .menu-toggle{display:flex;position:absolute;right:2rem;top:1rem}
             .hero-content h1{font-size:1.5rem}.hero-content p{font-size:0.9rem}.hero-content img{max-width:250px}.btn-primary{padding:0.7rem 1.2rem;font-size:0.9rem}
             .hero-content{padding:0.5rem;margin-top:3.5rem}.section h2{font-size:1.8rem}
-            .service-card img,.gallery-item img{height:120px}.call-now{bottom:70px;padding:.7rem 1.2rem;font-size:.8rem}
+            .service-card img,.gallery-item img{height:120px}
+            .call-now{bottom:70px;right:50%;transform:translateX(50%);padding:.7rem 1.2rem;font-size:.8rem;box-shadow:0 0 10px rgba(193,154,107,.5);animation:auraPulse 3s infinite ease-in-out}
         }
         @media (max-width:480px){
             .hero-content h1{font-size:1.2rem;margin-bottom:0.3rem}.hero-content p{font-size:0.8rem;margin-bottom:0.3rem}.hero-content img{max-width:200px;margin-bottom:0.3rem}
             .btn-primary{padding:0.6rem 1rem;font-size:0.8rem}.section h2{font-size:1.5rem}
             .hero-content{margin-top:3rem}
+        }
+        /* Aura pulse animation */
+        @keyframes auraPulse {
+            0% {box-shadow:0 0 10px rgba(193,154,107,.5)}
+            50% {box-shadow:0 0 20px rgba(193,154,107,.7)}
+            100% {box-shadow:0 0 10px rgba(193,154,107,.5)}
         }
     </style>
 </head>
