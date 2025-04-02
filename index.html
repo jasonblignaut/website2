@@ -3,141 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fat Boyz Maintenance - Home repairs and maintenance in Pretoria, South Africa. Tiling, doors, painting, and more.">
+    <meta name="description" content="Fat Boyz Maintenance - Professional home repairs and maintenance in Pretoria, South Africa. Tiling, doors, painting, and more.">
+    <meta name="keywords" content="home maintenance, repairs, Pretoria, tiling, door installation, painting, boundary walls, gates">
+    <meta name="author" content="Fat Boyz Maintenance">
     <title>Fat Boyz Maintenance | Pretoria Home Fixes</title>
-    <style>
-        /* Reset and Base Styles */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background: #f4f4f4; color: #333; line-height: 1.6; }
-
-        /* Header */
-        header { 
-            background: #1a2b5f; 
-            color: white; 
-            padding: 1rem; 
-            position: sticky; 
-            top: 0; 
-            z-index: 10; 
-            text-align: center; 
-        }
-        header p { font-size: 0.9rem; }
-        header a { color: #ff6200; text-decoration: none; }
-        header a:hover { text-decoration: underline; }
-
-        /* Hero Section */
-        .hero { 
-            height: 100vh; 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x1080?text=Pretoria+Skyline'); 
-            background-size: cover; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center; 
-            color: white; 
-        }
-        .hero h1 { 
-            font-size: 3.5rem; 
-            animation: slideIn 1s ease-out; 
-        }
-        .hero p { font-size: 1.5rem; margin: 1rem 0; }
-        .hero .btn { 
-            background: #ff6200; 
-            color: white; 
-            padding: 1rem 2rem; 
-            border: none; 
-            border-radius: 5px; 
-            font-size: 1.2rem; 
-            cursor: pointer; 
-            animation: pulse 2s infinite; 
-        }
-        .hero .btn:hover { background: #e05500; }
-
-        /* Services Section */
-        .services { padding: 4rem 2rem; text-align: center; background: #fff; }
-        .services h2 { font-size: 2.5rem; margin-bottom: 2rem; }
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .service-card { 
-            background: #1a2b5f; 
-            color: white; 
-            padding: 2rem; 
-            border-radius: 10px; 
-            transition: transform 0.3s, box-shadow 0.3s; 
-        }
-        .service-card:hover { 
-            transform: translateY(-10px); 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
-        }
-        .service-card h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-        .service-card p { font-size: 1rem; }
-
-        /* Contact Section */
-        .contact { padding: 4rem 2rem; background: #ff6200; color: white; text-align: center; }
-        .contact h2 { font-size: 2.5rem; margin-bottom: 2rem; }
-        .contact form { max-width: 600px; margin: 0 auto; }
-        .contact input, .contact textarea { 
-            width: 100%; 
-            padding: 1rem; 
-            margin: 0.5rem 0; 
-            border: none; 
-            border-radius: 5px; 
-        }
-        .contact button { 
-            background: #1a2b5f; 
-            color: white; 
-            padding: 1rem 2rem; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-        }
-        .contact button:hover { background: #0f1b3d; }
-
-        /* Footer */
-        footer { background: #1a2b5f; color: white; text-align: center; padding: 1rem; }
-        footer a { color: #ff6200; }
-
-        /* Animations */
-        @keyframes slideIn { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
-
-        /* Responsive */
-        @media (max-width: 768px) { 
-            .hero h1 { font-size: 2.5rem; } 
-            .hero p { font-size: 1.2rem; } 
-            .services h2, .contact h2 { font-size: 2rem; } 
-        }
-    </style>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
     <header>
-        <p>Onderstepoort, Pretoria, South Africa | <a href="tel:+270829202766">+27-0829202766</a> | <a href="mailto:office@fatboyz.co.za">office@fatboyz.co.za</a> | Mon-Fri 08:00-16:00</p>
+        <div class="contact-bar">
+            <p>
+                <span>Onderstepoort, Pretoria, South Africa</span> | 
+                <a href="tel:+270829202766">+27-0829202766</a> | 
+                <a href="mailto:office@fatboyz.co.za">office@fatboyz.co.za</a> | 
+                Mon-Fri 08:00-16:00
+            </p>
+        </div>
+        <nav>
+            <div class="logo">
+                <h1>Fat Boyz Maintenance</h1>
+            </div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <h1>Fat Boyz Maintenance</h1>
-        <p>Pretoria’s Home Heroes – We Fix It Right!</p>
-        <button class="btn">Get a Free Quote</button>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Fat Boyz Maintenance</h1>
+            <p>Pretoria’s Home Heroes – We Fix It Right!</p>
+            <button class="btn">Get a Free Quote</button>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>Owning and caring for a home is a big responsibility. Having the right people to help you do this is even more important. Based in Onderstepoort, Pretoria, Fat Boyz Maintenance takes care of the things you can’t – with skill, grit, and a smile.</p>
+        <div class="trust-signals">
+            <div class="signal">
+                <img src="icons/verified-icon.png" alt="Verified Icon">
+                <p>Fully Insured & Certified</p>
+            </div>
+            <div class="signal">
+                <img src="icons/location-icon.png" alt="Location Icon">
+                <p>Serving Pretoria with Pride</p>
+            </div>
+        </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services">
+    <section id="services" class="services">
         <h2>Our Services</h2>
         <div class="service-grid">
             <div class="service-card">
+                <img src="icons/tiling-icon.png" alt="Tiling Icon" class="service-icon">
+                <img src="thumbnails/tiling-thumb.jpg" alt="Tiling Thumbnail" class="service-thumb">
                 <h3>Tiling</h3>
                 <p>From your walls to your floors and more – precision tiling that lasts.</p>
             </div>
             <div class="service-card">
+                <img src="icons/door-icon.png" alt="Door Icon" class="service-icon">
+                <img src="thumbnails/door-thumb.jpg" alt="Door Thumbnail" class="service-thumb">
                 <h3>Door Installation</h3>
                 <p>Supply, installation, and varnish – your doors, done right.</p>
             </div>
             <div class="service-card">
+                <img src="icons/painting-icon.png" alt="Painting Icon" class="service-icon">
+                <img src="thumbnails/painting-thumb.jpg" alt="Painting Thumbnail" class="service-thumb">
                 <h3>Wall Repairs & Painting</h3>
                 <p>Cracks fixed, colors popped – walls that wow.</p>
             </div>
             <div class="service-card">
+                <img src="icons/general-icon.png" alt="General Icon" class="service-icon">
+                <img src="thumbnails/general-thumb.jpg" alt="General Thumbnail" class="service-thumb">
                 <h3>And Many More</h3>
                 <p>Boundary walls, gates, carports, ceilings, paving, and general maintenance.</p>
             </div>
@@ -145,33 +91,67 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact">
+    <section id="contact" class="contact">
         <h2>Contact Us</h2>
-        <form>
-            <input type="text" placeholder="Name" required>
-            <input type="tel" placeholder="Phone" required>
-            <input type="email" placeholder="Email" required>
-            <textarea placeholder="Tell us about your project..." rows="5" required></textarea>
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="tel" name="phone" placeholder="Phone" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
             <button type="submit">Send Message</button>
         </form>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Fat Boyz Maintenance | <a href="https://fatboyzfix.co.za">fatboyzfix.co.za</a></p>
+        <p>© 2025 Fat Boyz Maintenance | <a href="https://fatboyzfix.co.za">fatboyzfix.co.za</a></p>
+        <div class="social-links">
+            <a href="#"><img src="icons/facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="icons/instagram-icon.png" alt="Instagram"></a>
+            <a href="#"><img src="icons/twitter-icon.png" alt="Twitter"></a>
+        </div>
+        <button class="back-to-top">Back to Top</button>
     </footer>
 
-    <!-- Basic JavaScript for Interactivity -->
+    <!-- Background Audio (Optional) -->
+    <audio id="background-audio" loop>
+        <source src="music/background-audio.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <button class="audio-toggle">Toggle Audio</button>
+
+    <!-- JavaScript -->
     <script>
-        // Smooth scroll for buttons (if you add more links later)
-        document.querySelector('.btn').addEventListener('click', () => {
-            document.querySelector('.contact').scrollIntoView({ behavior: 'smooth' });
+        // Smooth Scroll
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const section = document.querySelector(this.getAttribute('href'));
+                section.scrollIntoView({ behavior: 'smooth' });
+            });
         });
 
-        // Form submission alert (replace with real backend later)
-        document.querySelector('form').addEventListener('submit', (e) => {
+        // Form Submission
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
             e.preventDefault();
             alert('Thanks for reaching out! We’ll get back to you soon.');
+        });
+
+        // Back to Top
+        document.querySelector('.back-to-top').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Audio Toggle
+        const audio = document.getElementById('background-audio');
+        document.querySelector('.audio-toggle').addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                audio.classList.add('playing');
+            } else {
+                audio.pause();
+                audio.classList.remove('playing');
+            }
         });
     </script>
 </body>
