@@ -22,29 +22,51 @@
         .nav-links li a:hover,.nav-links li a.active{color:#C19A6B;border-bottom:2px solid #C19A6B}
         .hero{
             background:
-                /* Subtle brick pattern layer with low opacity */
+                /* Brick pattern layer 1: Horizontal "mortar" lines */
                 repeating-linear-gradient(
-                    45deg,
-                    rgba(193,154,107,0.1) 0px,
-                    rgba(193,154,107,0.1) 10px,
-                    transparent 10px,
-                    transparent 20px
+                    to bottom,
+                    transparent 0px,
+                    transparent 30px,
+                    rgba(255,255,255,0.1) 30px,
+                    rgba(255,255,255,0.1) 32px
                 ),
+                /* Brick pattern layer 2: Vertical "mortar" lines for staggered bricks */
                 repeating-linear-gradient(
-                    135deg,
-                    rgba(193,154,107,0.1) 0px,
-                    rgba(193,154,107,0.1) 10px,
-                    transparent 10px,
-                    transparent 20px
+                    to right,
+                    transparent 0px,
+                    transparent 60px,
+                    rgba(255,255,255,0.1) 60px,
+                    rgba(255,255,255,0.1) 62px,
+                    transparent 62px,
+                    transparent 120px,
+                    rgba(255,255,255,0.1) 120px,
+                    rgba(255,255,255,0.1) 122px
+                ),
+                /* Brick pattern layer 3: Offset vertical lines for staggered effect */
+                repeating-linear-gradient(
+                    to right,
+                    transparent 0px,
+                    transparent 30px,
+                    rgba(255,255,255,0.1) 30px,
+                    rgba(255,255,255,0.1) 32px,
+                    transparent 32px,
+                    transparent 90px,
+                    rgba(255,255,255,0.1) 90px,
+                    rgba(255,255,255,0.1) 92px
+                ),
+                /* Brick color fill with subtle shadow */
+                linear-gradient(
+                    rgba(139,69,19,0.3),
+                    rgba(139,69,19,0.3)
                 ),
                 /* Original gradient overlay */
                 linear-gradient(135deg, rgba(26,37,38,.9), rgba(74,106,122,.7)),
                 /* Background image */
                 url('/images/onderstepoort.jpg');
-            background-size: auto, auto, auto, cover;
-            background-position: center, center, center, center;
+            background-size: auto, auto, auto, auto, auto, cover;
+            background-position: center, center, 30px 15px, center, center, center;
             background-attachment: scroll;
-            background-blend-mode: overlay, overlay, overlay;
+            background-blend-mode: overlay, overlay, overlay, overlay, overlay;
             height: 100vh;
             display: flex;
             justify-content: center;
