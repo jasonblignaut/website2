@@ -171,7 +171,7 @@
         <img id="fullscreenImage" src="" alt="Fullscreen Image">
     </div>
 
-    <a href="tel:082920276 2766" class="call-now">Call Now</a>
+    <a href="tel:0829202766" class="call-now">Call Now</a>
     <button class="scroll-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
     <footer class="footer"><p>© 2025 Fat Boyz Maintenance | <a href="https://fatboyzfix.co.za">fatboyz.co.za</a> | Onderstepoort, Pretoria, South Africa | 0829202766 | Mon-Fri 09:00-16:00</p></footer>
 
@@ -187,13 +187,17 @@
         // Fullscreen gallery images
         const overlay = document.getElementById('fullscreenOverlay');
         const fullscreenImg = document.getElementById('fullscreenImage');
-        document.querySelectorAll('.gallery-item img').forEach(img => {
+        const galleryImages = document.querySelectorAll('.gallery-item img');
+        console.log('Gallery images found:', galleryImages.length); // Debug: Check if images are found
+        galleryImages.forEach((img, index) => {
             img.addEventListener('click', () => {
+                console.log('Image clicked:', index, img.src); // Debug: Confirm click event
                 fullscreenImg.src = img.src;
                 overlay.style.display = 'flex';
             });
         });
         overlay.addEventListener('click', () => {
+            console.log('Overlay clicked, closing'); // Debug: Confirm overlay close
             overlay.style.display = 'none';
         });
     </script>
