@@ -45,6 +45,24 @@
         .btn-primary{background:#C19A6B;color:#FFF;padding:0.8rem 1.5rem;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;transition:.3s}
         .btn-primary:hover{background:#4A6A7A;transform:translateY(-3px);box-shadow:0 0 15px rgba(193,154,107,.5)}
 
+        /* Call Now Button */
+        .call-now {
+            display:none; /* Hidden by default */
+            background:#C19A6B;
+            color:#FFF;
+            padding:0.8rem 1.5rem;
+            border-radius:30px;
+            font-family:'Montserrat',sans-serif;
+            font-size:1.2rem;
+            box-shadow:0 5px 15px rgba(0,0,0,.2);
+            margin-top:1rem; /* Space below Get Free Quote */
+            text-align:center;
+        }
+        .call-now:hover {
+            background:#4A6A7A;
+            box-shadow:0 0 15px rgba(193,154,107,.5);
+        }
+
         /* Sections */
         .section{padding:4rem 2rem}
         .section h2{font-family:'Montserrat',sans-serif;font-size:2.2rem;color:#1A2526;text-align:center;margin-bottom:3rem}
@@ -84,39 +102,7 @@
         .contact button:hover{background:#4A6A7A;box-shadow:0 0 15px rgba(193,154,107,.5)}
         .form-message{margin-top:1rem;text-align:center}
 
-        /* Call Now Button */
-        .call-now {
-            display:none; /* Hidden by default */
-            position:fixed;
-            bottom:100px;
-            background:#C19A6B;
-            color:#FFF;
-            padding:0.8rem 1.5rem; /* Adjusted for balanced length */
-            border-radius:30px;
-            font-family:'Montserrat',sans-serif;
-            font-size:1.2rem;
-            box-shadow:0 5px 15px rgba(0,0,0,.2);
-            z-index:9;
-            transition:opacity .5s ease-in-out;
-            text-align:center;
-        }
-        .call-now.scrolled {
-            opacity:0;
-            pointer-events:none;
-        }
-        .call-now:hover {
-            background:#4A6A7A;
-            box-shadow:0 0 15px rgba(193,154,107,.5);
-        }
-
-        /* Desktop - Hidden */
-        @media (min-width:769px) {
-            .call-now {
-                display:none !important;
-            }
-        }
-
-        /* Mobile - Visible with Animation */
+        /* Mobile Adjustments */
         @media (max-width:768px) {
             .menu-toggle{display:flex;position:absolute;right:2rem;top:50%;transform:translateY(-50%)}
             .nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:#1A2526;padding:1rem 0}
@@ -132,13 +118,11 @@
             .section h2{font-size:1.8rem}
             .service-card img,.gallery-item img{height:120px}
             .call-now {
-                display:block !important;
-                right:50%;
-                transform:translateX(50%);
-                padding:0.8rem 1.5rem; /* Balanced size */
+                display:block !important; /* Visible on mobile */
+                position:static; /* Flows naturally below Get Free Quote */
+                padding:0.8rem 1.5rem;
                 font-size:1.2rem;
                 opacity:1;
-                position:relative;
                 overflow:hidden;
                 animation:pulse 2s infinite ease-in-out;
             }
@@ -161,9 +145,9 @@
                 100% {left:-100%;top:0}
             }
             @keyframes pulse {
-                0% {transform:translateX(50%) translateY(0)}
-                50% {transform:translateX(50%) translateY(-5px)}
-                100% {transform:translateX(50%) translateY(0)}
+                0% {transform:translateY(0)}
+                50% {transform:translateY(-5px)}
+                100% {transform:translateY(0)}
             }
         }
 
@@ -175,7 +159,14 @@
             .btn-primary{padding:0.6rem 1rem;font-size:0.8rem}
             .section h2{font-size:1.5rem}
             .hero-content{margin-top:3rem}
-            .call-now{bottom:90px;padding:0.7rem 1.2rem;font-size:1rem}
+            .call-now{padding:0.7rem 1.2rem;font-size:1rem}
+        }
+
+        /* Desktop - Hidden */
+        @media (min-width:769px) {
+            .call-now {
+                display:none !important;
+            }
         }
 
         /* Other Elements */
@@ -213,6 +204,7 @@
             <h1>Home Maintenance and Repairs</h1>
             <p>Upgrade your home with new tiling, painting, door installations, and more...</p>
             <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Get a Free Quote</button>
+            <a href="tel:0829202766" class="call-now">Call Now</a>
         </div>
     </section>
 
@@ -272,7 +264,6 @@
         <img id="fullscreenImage" src="" alt="Fullscreen Image">
     </div>
 
-    <a href="tel:0829202766" class="call-now">Call Now</a>
     <a href="https://wa.me/27829202766" class="whatsapp-btn"><img src="/images/whatsapp.jpg" alt="WhatsApp"></a>
     <button class="scroll-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
     <footer class="footer"><p>© 2025 Fat Boyz Maintenance | <a href="https://fatboyzfix.co.za">fatboyz.co.za</a> | Onderstepoort, Pretoria, South Africa | 0829202766 | Mon-Fri 09:00-16:00</p></footer>
@@ -312,17 +303,14 @@
                 });
         });
         window.addEventListener('scroll',()=>{
-            const callNow=document.querySelector('.call-now');
             const whatsappBtn=document.querySelector('.whatsapp-btn');
             const scrollTop=document.querySelector('.scroll-to-top');
             if(window.scrollY>50){
-                callNow.classList.add('scrolled');
                 scrollTop.style.opacity='1';
                 scrollTop.style.pointerEvents='auto';
                 clearTimeout(whatsappTimeout);
                 whatsappBtn.classList.add('visible');
             }else{
-                callNow.classList.remove('scrolled');
                 scrollTop.style.opacity='0';
                 scrollTop.style.pointerEvents='none';
                 clearTimeout(whatsappTimeout);
