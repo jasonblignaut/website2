@@ -56,13 +56,11 @@
         .contact input:focus,.contact textarea:focus{outline:none;border-color:#C19A6B;box-shadow:0 0 10px rgba(193,154,107,.2)}
         .contact textarea{resize:vertical}.contact button{background:#C19A6B;color:#FFF;padding:1rem;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700}
         .contact button:hover{background:#4A6A7A;box-shadow:0 0 15px rgba(193,154,107,.5)}.form-message{margin-top:1rem;text-align:center}
-        .call-now{position:fixed;bottom:100px;right:20px;background:#C19A6B;color:#FFF;padding:1rem 2rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:1.2rem;box-shadow:0 5px 15px rgba(0,0,0,.2);z-index:9;transition:opacity .5s ease-in-out}
+        .call-now{position:fixed;bottom:100px;right:20px;background:#C19A6B;color:#FFF;padding:1rem 2rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:1.2rem;box-shadow:0 5px 15px rgba(0,0,0,.2);z-index:9;transition:opacity .5s ease-in-out;opacity:0}
         .call-now.scrolled{opacity:0;pointer-events:none}
         .call-now:hover{background:#4A6A7A;box-shadow:0 0 15px rgba(193,154,107,.5)}
         @media (min-width:769px) {
-            .call-now {
-                display: none;
-            }
+            .call-now {display:none}
         }
         .whatsapp-btn{position:fixed;bottom:20px;left:20px;z-index:9;opacity:0;transition:opacity .5s ease-in-out}
         .whatsapp-btn img{width:60px;height:60px}
@@ -83,7 +81,7 @@
             .hero-content h1{font-size:1.5rem}.hero-content p{font-size:0.9rem}.hero-content img{max-width:250px}.btn-primary{padding:0.7rem 1.2rem;font-size:0.9rem}
             .hero-content{padding:0.5rem;margin-top:3.5rem}.section h2{font-size:1.8rem}
             .service-card img,.gallery-item img{height:120px}
-            .call-now{right:50%;transform:translateX(50%);padding:1.2rem 2.5rem;font-size:1.5rem;position:relative;overflow:hidden;animation:pulse 2s infinite ease-in-out}
+            .call-now{right:50%;transform:translateX(50%);padding:1.2rem 2.5rem;font-size:1.5rem;opacity:1;position:relative;overflow:hidden;animation:pulse 2s infinite ease-in-out}
             .call-now::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:2px;background:#FFF;box-shadow:0 0 10px rgba(255,255,255,.8);animation:glow-line 4s infinite linear}
             @keyframes glow-line {
                 0% {left:-100%;top:0}
@@ -198,6 +196,9 @@
             whatsappTimeout = setTimeout(() => {
                 document.querySelector('.whatsapp-btn').classList.add('visible');
             }, 5000);
+            if (window.innerWidth <= 768) {
+                document.querySelector('.call-now').style.opacity = '1';
+            }
         });
         document.querySelectorAll('nav a').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'});document.querySelectorAll('.nav-links li a').forEach(l=>l.classList.remove('active'));a.classList.add('active');document.querySelector('.nav-links').classList.remove('active');document.querySelector('.menu-toggle').classList.remove('active')})});
         document.getElementById('contact-form').addEventListener('submit',e=>{e.preventDefault();const f=e.target,m=document.getElementById('form-message'),d=new FormData(f);fetch(f.action,{method:'POST',body:d,headers:{'Accept':'application/json'}}).then(r=>{if(r.ok){m.textContent='Message sent! We’ll get back to you soon.';m.style.color='#C19A6B';f.reset()}else{m.textContent='Error sending message. Please try again.';m.style.color='#4A6A7A'}}).catch(()=>{m.textContent='Error sending message. Please try again.';m.style.color='#4A6A7A'})});
@@ -213,6 +214,9 @@
                 whatsappBtn.classList.add('visible');
             }else{
                 callNow.classList.remove('scrolled');
+                if (window.innerWidth <= 768) {
+                    callNow.style.opacity = '1';
+                }
                 whatsappBtn.classList.remove('visible');
                 scrollTop.style.opacity='0';
                 scrollTop.style.pointerEvents='none';
