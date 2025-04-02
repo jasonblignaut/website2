@@ -22,8 +22,8 @@
             <p>
                 <span>Onderstepoort, Pretoria, South Africa</span> | 
                 <a href="tel:+270829202766">+27-0829202766</a> | 
-                <a href="mailto:office@fatboyz.co.za">office@fatboyz.co.za</a> | 
-                Mon-Fri 08:00-16:00
+                <a href="mailto:office@fatboyz.co.za">fatboyzfix@gmail.com</a> | 
+                Mon-Fri 08:00-17:00
             </p>
         </div>
         <nav>
@@ -32,10 +32,15 @@
                     <img src="icons/fbmlogo.png" alt="Fat Boyz Maintenance Logo" class="logo-img">
                 </a>
             </div>
-            <ul>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
                 <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -43,7 +48,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section (Home) -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Fat Boyz Maintenance</h1>
@@ -159,28 +164,19 @@
             <textarea name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
             <button type="submit">Send Message</button>
         </form>
+        <div id="form-message" class="form-message"></div>
     </section>
 
     <!-- Sticky Call Now Button -->
     <a href="tel:+270829202766" class="call-now">Call Now</a>
 
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top">↑ Top</button>
+
     <!-- Footer -->
     <footer>
         <p>© 2025 Fat Boyz Maintenance | <a href="https://fatboyzfix.co.za">fatboyzfix.co.za</a></p>
-        <div class="social-links">
-            <a href="#"><img src="icons/fbmlogo.png" alt="Facebook"></a>
-            <a href="#"><img src="icons/fbmlogo.png" alt="Instagram"></a>
-            <a href="#"><img src="icons/fbmlogo.png" alt="Twitter"></a>
-        </div>
-        <button class="back-to-top">Back to Top</button>
     </footer>
-
-    <!-- Background Audio (Optional) -->
-    <audio id="background-audio" loop>
-        <source src="music/background-audio.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <button class="audio-toggle">Toggle Audio</button>
 
     <!-- JavaScript -->
     <script>
@@ -190,31 +186,67 @@
                 e.preventDefault();
                 const section = document.querySelector(this.getAttribute('href'));
                 section.scrollIntoView({ behavior: 'smooth' });
+
+                // Trigger top-down animation for menu items
+                document.querySelectorAll('.nav-links li').forEach((item, index) => {
+                    item.style.animation = `topDown 0.5s ease forwards ${index * 0.1}s`;
+                });
             });
         });
 
-        // Form Submission (Handled by Formspree)
-        document.getElementById('contact-form').addEventListener('submit', (e) => {
-            // Formspree handles the submission; we can add a success message
-            setTimeout(() => {
-                alert('Thanks for reaching out! We’ll get back to you soon.');
-            }, 500);
+        // Form Submission with AJAX (Prevent Formspree Redirect)
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = this;
+            const formMessage = document.getElementById('form-message');
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    formMessage.textContent = 'Thanks for reaching out! We’ll get back to you soon.';
+                    formMessage.style.color = '#F5F5F5';
+                    formMessage.style.background = '#1A2B5F';
+                    formMessage.style.padding = '1rem';
+                    formMessage.style.borderRadius = '5px';
+                    form.reset();
+                } else {
+                    formMessage.textContent = 'Oops! Something went wrong. Please try again.';
+                    formMessage.style.color = '#FF6200';
+                    formMessage.style.background = '#F5F5F5';
+                    formMessage.style.padding = '1rem';
+                    formMessage.style.borderRadius = '5px';
+                }
+            })
+            .catch(error => {
+                formMessage.textContent = 'Oops! Something went wrong. Please try again.';
+                formMessage.style.color = '#FF6200';
+                formMessage.style.background = '#F5F5F5';
+                formMessage.style.padding = '1rem';
+                formMessage.style.borderRadius = '5px';
+            });
         });
 
-        // Back to Top
-        document.querySelector('.back-to-top').addEventListener('click', () => {
+        // Scroll to Top
+        document.querySelector('.scroll-to-top').addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Audio Toggle
-        const audio = document.getElementById('background-audio');
-        document.querySelector('.audio-toggle').addEventListener('click', () => {
-            if (audio.paused) {
-                audio.play();
-                audio.classList.add('playing');
+        // Show/Hide Scroll to Top Button
+        window.addEventListener('scroll', () => {
+            const scrollToTop = document.querySelector('.scroll-to-top');
+            if (window.scrollY > 300) {
+                scrollToTop.style.opacity = '1';
+                scrollToTop.style.pointerEvents = 'auto';
             } else {
-                audio.pause();
-                audio.classList.remove('playing');
+                scrollToTop.style.opacity = '0';
+                scrollToTop.style.pointerEvents = 'none';
             }
         });
 
@@ -248,6 +280,27 @@
             const hero = document.querySelector('.hero');
             const scrollPosition = window.pageYOffset;
             hero.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+        });
+
+        // Menu Toggle for Mobile
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+            if (navLinks.classList.contains('active')) {
+                // Trigger top-down animation for menu items
+                document.querySelectorAll('.nav-links li').forEach((item, index) => {
+                    item.style.animation = `topDown 0.5s ease forwards ${index * 0.1}s`;
+                });
+            }
+        });
+
+        // Top-Down Animation on Page Load (Desktop)
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.nav-links li').forEach((item, index) => {
+                item.style.animation = `topDown 0.5s ease forwards ${index * 0.1}s`;
+            });
         });
     </script>
 </body>
