@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Fat Boyz Maintenance - Professional home repairs and maintenance in Pretoria, South Africa. Tiling, doors, painting, and more.">
-    <meta name="keywords" content="home maintenance, repairs, Pretoria, tiling, door installation, painting, boundary walls, gates">
+    <meta name="keywords" content="home maintenance, repairs, Pretoria, tiling, door installation, painting, boundary walls, gates, South Africa">
     <meta name="author" content="Fat Boyz Maintenance">
+    <meta name="robots" content="index, follow">
     <title>Fat Boyz Maintenance | Pretoria Home Fixes</title>
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="icons/favicon.ico">
+    <!-- CSS -->
     <link rel="stylesheet" href="styles/styles.css">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -26,13 +29,14 @@
         <nav>
             <div class="logo">
                 <a href="#home">
-                    <img src="icons/fbmlogo.png" alt="Fat Boyz Maintenance Logo" class="logo-img">
+                    <img src="icons/logo.png" alt="Fat Boyz Maintenance Logo" class="logo-img">
                 </a>
             </div>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#about">About Us</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -90,6 +94,37 @@
                 <img src="thumbnails/general-thumb.jpg" alt="General Thumbnail" class="service-thumb">
                 <h3>And Many More</h3>
                 <p>Boundary walls, gates, carports, ceilings, paving, and general maintenance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <h2>Our Work</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="thumbnails/tiling-thumb.jpg" alt="Tiling Project">
+                <div class="overlay">
+                    <p>Tiling Project</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="thumbnails/door-thumb.jpg" alt="Door Installation">
+                <div class="overlay">
+                    <p>Door Installation</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="thumbnails/painting-thumb.jpg" alt="Wall Painting">
+                <div class="overlay">
+                    <p>Wall Painting</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="thumbnails/general-thumb.jpg" alt="General Maintenance">
+                <div class="overlay">
+                    <p>General Maintenance</p>
+                </div>
             </div>
         </div>
     </section>
@@ -156,6 +191,16 @@
                 audio.pause();
                 audio.classList.remove('playing');
             }
+        });
+
+        // Gallery Hover Effect
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.querySelector('.overlay').style.opacity = '1';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.querySelector('.overlay').style.opacity = '0';
+            });
         });
     </script>
 </body>
