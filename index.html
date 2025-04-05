@@ -3,27 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fat Boyz Maintenance - Home Maintenance and Repairs. Tiling, door installation, painting, and more.">
-    <meta name="keywords" content="handyman, home maintenance, Pretoria, tiling, door installation, painting, boundary walls, gates, South Africa">
+    <meta name="description" content="Fat Boyz Maintenance - Top Home Maintenance and Repairs in Pretoria, South Africa. Tiling, door installation, painting, and more.">
+    <meta name="keywords" content="handyman, home maintenance, Pretoria, tiling, door installation, painting, boundary walls, gates, South Africa, best handyman Pretoria">
     <meta name="author" content="Fat Boyz Maintenance">
     <meta name="robots" content="index, follow">
-    <title>Fat Boyz Maintenance | Home Maintenance and Repairs</title>
-    <meta property="og:title" content="Fat Boyz Maintenance">
-    <meta property="og:description" content="Home Maintenance and Repairs. Tiling, door installation, painting, and more.">
-    <meta property="og:image" content="/images/fbmlogo.png">
+    <meta name="geo.region" content="ZA-GP"> <!-- Gauteng, South Africa -->
+    <meta name="geo.placename" content="Pretoria">
+    <title>Fat Boyz Maintenance | Best Home Maintenance in Pretoria, South Africa</title>
+
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Fat Boyz Maintenance - Pretoria's Best Handyman">
+    <meta property="og:description" content="Top Home Maintenance and Repairs in Pretoria, South Africa. Tiling, door installation, painting, and more.">
+    <meta property="og:image" content="https://fatboyzfix.co.za/images/fbmlogo.png">
     <meta property="og:url" content="https://fatboyzfix.co.za">
     <meta property="og:type" content="website">
-    <link rel="icon" type="image/png" href="/images/fbmlogo.png">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fat Boyz Maintenance - Pretoria's Best Handyman">
+    <meta name="twitter:description" content="Top Home Maintenance and Repairs in Pretoria, South Africa. Tiling, door installation, painting, and more.">
+    <meta name="twitter:image" content="https://fatboyzfix.co.za/images/fbmlogo.png">
+
+    <!-- Favicon (using fbmlogo.png only) -->
+    <link rel="icon" type="image/png" href="/images/fbmlogo.png" sizes="any">
+    <link rel="apple-touch-icon" href="/images/fbmlogo.png">
+    <link rel="shortcut icon" type="image/png" href="/images/fbmlogo.png">
+
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Schema Markup for Local Business -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Fat Boyz Maintenance",
+        "description": "Top home maintenance and repair services in Pretoria, South Africa.",
+        "telephone": "+27829202766",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Pretoria",
+            "addressRegion": "Gauteng",
+            "addressCountry": "ZA",
+            "streetAddress": "Onderstepoort"
+        },
+        "url": "https://fatboyzfix.co.za",
+        "image": "https://fatboyzfix.co.za/images/fbmlogo.png",
+        "openingHours": "Mo-Fr 09:00-16:00",
+        "priceRange": "$$"
+    }
+    </script>
+
     <style>
+        /* Preloader */
+        #preloader{position:fixed;top:0;left:0;width:100%;height:100%;background:#1A2526;z-index:9999;display:flex;justify-content:center;align-items:center;opacity:1;transition:opacity .5s}
+        #preloader img{width:100px;animation:spin 2s infinite linear}
+        @keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+
+        /* Existing Styles with Improvements */
         *{margin:0;padding:0;box-sizing:border-box}
         html{scroll-behavior:smooth}
         body{font-family:'Lato',sans-serif;background:#F7F7F7;color:#1A2526;line-height:1.6;overflow-x:hidden}
         a{text-decoration:none}
         button{cursor:pointer}
         section{scroll-margin-top:80px}
-
-        /* Header */
         header{background:#1A2526;color:#FFF;position:sticky;top:0;z-index:10;box-shadow:0 2px 10px rgba(0,0,0,.1)}
         nav{display:flex;justify-content:center;align-items:center;padding:1rem 2rem;max-width:1200px;margin:0 auto;position:relative}
         .menu-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:11}
@@ -35,35 +78,15 @@
         .nav-links li a{color:#FFF;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;padding-bottom:5px}
         .nav-links li a:hover,.nav-links li a.active{color:#C19A6B;border-bottom:2px solid #C19A6B}
         .nav-phone{margin-left:1rem;color:#C19A6B;font-family:'Lato',sans-serif;font-weight:400;font-size:.9rem}
-
-        /* Hero */
-        .hero{background:linear-gradient(135deg,rgba(26,37,38,.9),rgba(74,106,122,.7)),url('/images/onderstepoort.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;height:100vh;display:flex;justify-content:center;text-align:center;color:#FFF;padding:1rem}
+        .hero{background:linear-gradient(135deg,rgba(26,37,38,.9),rgba(74,106,122,.7)),url('/images/onderstepoort.jpg');background-size:cover;background-position:center;height:100vh;display:flex;justify-content:center;text-align:center;color:#FFF;padding:1rem}
         .hero-content{max-width:90%;display:flex;flex-direction:column;align-items:center;padding:0.5rem;margin-top:4rem}
         .hero-content img{max-width:400px;width:80%;margin-bottom:0.5rem}
         .hero-content h1{font-family:'Montserrat',sans-serif;font-size:2.5rem;font-weight:700;margin-bottom:0.5rem}
         .hero-content p{font-size:1.2rem;margin-bottom:0.5rem}
         .btn-primary{background:#C19A6B;color:#FFF;padding:0.8rem 1.5rem;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;transition:.3s}
         .btn-primary:hover{background:#4A6A7A;transform:translateY(-3px);box-shadow:0 0 15px rgba(193,154,107,.5)}
-
-        /* Call Now Button */
-        .call-now {
-            display:none; /* Hidden by default */
-            background:#C19A6B;
-            color:#FFF;
-            padding:0.8rem 1.5rem;
-            border-radius:30px;
-            font-family:'Montserrat',sans-serif;
-            font-size:1.2rem;
-            box-shadow:0 5px 15px rgba(0,0,0,.2);
-            margin-top:1rem; /* Space below Get Free Quote */
-            text-align:center;
-        }
-        .call-now:hover {
-            background:#4A6A7A;
-            box-shadow:0 0 15px rgba(193,154,107,.5);
-        }
-
-        /* Sections */
+        .call-now{display:none;background:#C19A6B;color:#FFF;padding:0.8rem 1.5rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:1.2rem;box-shadow:0 5px 15px rgba(0,0,0,.2);margin-top:1rem;text-align:center}
+        .call-now:hover{background:#4A6A7A;box-shadow:0 0 15px rgba(193,154,107,.5)}
         .section{padding:4rem 2rem}
         .section h2{font-family:'Montserrat',sans-serif;font-size:2.2rem;color:#1A2526;text-align:center;margin-bottom:3rem}
         .section h2::after{content:'';display:block;width:80px;height:3px;background:#C19A6B;margin:1rem auto}
@@ -72,19 +95,19 @@
         .about-content p{font-size:1.1rem;margin-bottom:1.5rem}
         .trust-signals{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-top:2rem}
         .signal{text-align:center}
-        .signal img{width:40px;margin-bottom:.5rem}
+        .signal img{width:40px;margin-bottom:.5rem;loading:"lazy"}
         .signal p{font-size:1rem;color:#1A2526}
         .services{background:#F7F7F7}
         .service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;max-width:1200px;margin:0 auto}
         .service-card{background:#FFF;padding:1.5rem;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1);transition:.3s}
         .service-card:hover{transform:translateY(-5px);box-shadow:0 0 20px rgba(193,154,107,.3);border:1px solid #C19A6B}
-        .service-card img{width:100%;height:150px;object-fit:cover;border-radius:5px;margin-bottom:1rem}
+        .service-card img{width:100%;height:150px;object-fit:cover;border-radius:5px;margin-bottom:1rem;loading:"lazy"}
         .service-card h3{font-family:'Montserrat',sans-serif;font-size:1.3rem;color:#1A2526;margin-bottom:.5rem}
         .service-card p{font-size:.95rem;color:#4A6A7A}
         .gallery{background:#FFF}
         .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;max-width:1200px;margin:0 auto}
         .gallery-item{position:relative;border-radius:5px;overflow:hidden}
-        .gallery-item img{width:100%;height:200px;object-fit:cover;cursor:pointer}
+        .gallery-item img{width:100%;height:200px;object-fit:cover;cursor:pointer;loading:"lazy"}
         .gallery-item .overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(26,37,38,.8),rgba(74,106,122,.6));display:flex;align-items:center;justify-content:center;opacity:0;transition:.3s}
         .gallery-item:hover .overlay{opacity:1}
         .overlay p{color:#FFF;font-family:'Montserrat',sans-serif;font-size:1.1rem}
@@ -101,6 +124,10 @@
         .contact button{background:#C19A6B;color:#FFF;padding:1rem;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700}
         .contact button:hover{background:#4A6A7A;box-shadow:0 0 15px rgba(193,154,107,.5)}
         .form-message{margin-top:1rem;text-align:center}
+        .map-container{max-width:600px;margin:2rem auto;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.1)}
+
+        /* Accessibility */
+        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 
         /* Mobile Adjustments */
         @media (max-width:768px) {
@@ -109,7 +136,7 @@
             .nav-links.active{display:flex;flex-direction:column;gap:1rem}
             .nav-links li a{padding:1rem;display:block}
             .nav-phone{display:none}
-            .hero{background-size:100% 100%;background-position:center;background-repeat:no-repeat;height:100vh}
+            .hero{background-size:100% 100%;height:100vh}
             .hero-content h1{font-size:1.5rem}
             .hero-content p{font-size:0.9rem}
             .hero-content img{max-width:250px}
@@ -117,41 +144,12 @@
             .hero-content{padding:0.5rem;margin-top:3.5rem}
             .section h2{font-size:1.8rem}
             .service-card img,.gallery-item img{height:120px}
-            .call-now {
-                display:block !important; /* Visible on mobile */
-                position:static; /* Flows naturally below Get Free Quote */
-                padding:0.8rem 1.5rem;
-                font-size:1.2rem;
-                opacity:1;
-                overflow:hidden;
-                animation:pulse 2s infinite ease-in-out;
-            }
-            .call-now::before {
-                content:'';
-                position:absolute;
-                top:0;
-                left:-100%;
-                width:100%;
-                height:2px;
-                background:#FFF;
-                box-shadow:0 0 10px rgba(255,255,255,.8);
-                animation:glow-line 4s infinite linear;
-            }
-            @keyframes glow-line {
-                0% {left:-100%;top:0}
-                25% {left:100%;top:0}
-                50% {left:100%;top:100%}
-                75% {left:-100%;top:100%}
-                100% {left:-100%;top:0}
-            }
-            @keyframes pulse {
-                0% {transform:translateY(0)}
-                50% {transform:translateY(-5px)}
-                100% {transform:translateY(0)}
-            }
+            .call-now{display:block !important;position:static;padding:0.8rem 1.5rem;font-size:1.2rem;opacity:1;animation:pulse 2s infinite ease-in-out}
+            .call-now::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:2px;background:#FFF;box-shadow:0 0 10px rgba(255,255,255,.8);animation:glow-line 4s infinite linear}
+            @keyframes glow-line{0%{left:-100%;top:0}25%{left:100%;top:0}50%{left:100%;top:100%}75%{left:-100%;top:100%}100%{left:-100%;top:0}}
+            @keyframes pulse{0%{transform:translateY(0)}50%{transform:translateY(-5px)}100%{transform:translateY(0)}}
         }
 
-        /* Smaller Mobile */
         @media (max-width:480px) {
             .hero-content h1{font-size:1.2rem;margin-bottom:0.3rem}
             .hero-content p{font-size:0.8rem;margin-bottom:0.3rem}
@@ -162,16 +160,12 @@
             .call-now{padding:0.7rem 1.2rem;font-size:1rem}
         }
 
-        /* Desktop - Hidden */
         @media (min-width:769px) {
-            .call-now {
-                display:none !important;
-            }
+            .call-now{display:none !important}
         }
 
-        /* Other Elements */
         .whatsapp-btn{position:fixed;bottom:20px;left:20px;z-index:9;opacity:0;transition:opacity .5s ease-in-out}
-        .whatsapp-btn img{width:60px;height:60px}
+        .whatsapp-btn img{width:60px;height:60px;loading:"lazy"}
         .whatsapp-btn.visible{opacity:1}
         .scroll-to-top{position:fixed;bottom:20px;right:20px;background:#1A2526;color:#FFF;padding:.5rem 1rem;border:none;border-radius:50%;font-size:1rem;box-shadow:0 5px 15px rgba(0,0,0,.2);opacity:0;pointer-events:none}
         footer{background:#1A2526;color:#FFF;text-align:center;padding:1rem}
@@ -183,9 +177,12 @@
     </style>
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader"><img src="/images/fbmlogo.png" alt="Loading..."></div>
+
     <header>
-        <nav>
-            <div class="menu-toggle"><span></span><span></span><span></span></div>
+        <nav aria-label="Main navigation">
+            <div class="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></div>
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -193,7 +190,7 @@
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <span class="nav-phone">0829202766</span>
+                <span class="nav-phone">082 920 2766</span>
             </ul>
         </nav>
     </header>
@@ -202,16 +199,16 @@
         <div class="hero-content">
             <img src="/images/fbmlogo.png" alt="Fat Boyz Maintenance Logo">
             <h1>Home Maintenance and Repairs</h1>
-            <p>Upgrade your home with new tiling, painting, door installations, and more...</p>
+            <p>Upgrade your home with Pretoria's best tiling, painting, door installations, and more...</p>
             <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Get a Free Quote</button>
-            <a href="tel:0829202766" class="call-now">Call Now</a>
+            <a href="tel:+27829202766" class="call-now">Call Now</a>
         </div>
     </section>
 
     <section id="about" class="section about">
         <h2>About Us</h2>
         <div class="about-content">
-            <p>Owning and caring for a home is a big responsibility. Having the right people to help you do this is even more important. This is where we come in. We take care of the things that you can’t. Ceilings, Painting, Tiling, Driveway Gates, Wooden Doors, Paving, Painting of roofs, Precast walls, Palisade Fencing and other.</p>
+            <p>Owning and caring for a home in South Africa is a big responsibility. Having the right people to help you is even more important. At Fat Boyz Maintenance, we take care of the things you can’t. Ceilings, Painting, Tiling, Driveway Gates, Wooden Doors, Paving, Roof Painting, Precast Walls, Palisade Fencing, and more.</p>
             <div class="trust-signals">
                 <div class="signal"><img src="/images/certified.jpg" alt="Certified Icon"><p>Professional Service</p></div>
                 <div class="signal"><img src="/images/maplogo.jpg" alt="Location Icon"><p>Serving Pretoria & Surrounds</p></div>
@@ -250,25 +247,36 @@
 
     <section id="contact" class="section contact">
         <h2>Contact Us</h2>
-        <form id="contact-form" action="https://formspree.io/f/mqapyawj" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="tel" name="phone" placeholder="Your Phone" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
+        <form id="contact-form" action="https://formspree.io/f/mqapyawj" method="POST" aria-label="Contact form">
+            <input type="text" name="name" placeholder="Your Name" required aria-label="Name">
+            <input type="tel" name="phone" placeholder="Your Phone" required aria-label="Phone">
+            <input type="email" name="email" placeholder="Your Email" required aria-label="Email">
+            <textarea name="message" placeholder="Tell us about your project..." rows="5" required aria-label="Message"></textarea>
             <button type="submit">Send Message</button>
         </form>
         <div id="form-message" class="form-message"></div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3595.9999999999995!2d28.083333!3d-25.666667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9560c0c0c0c0c0%3A0x0!2sOnderstepoort%2C%20Pretoria%2C%20South%20Africa!5e0!3m2!1sen!2sza!4v1698765432100!5m2!1sen!2sza" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </section>
 
     <div class="fullscreen-overlay" id="fullscreenOverlay">
         <img id="fullscreenImage" src="" alt="Fullscreen Image">
     </div>
 
-    <a href="https://wa.me/27829202766" class="whatsapp-btn"><img src="/images/whatsapp.jpg" alt="WhatsApp"></a>
-    <button class="scroll-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-    <footer class="footer"><p>© 2025 Fat Boyz Maintenance | <a href="https://fatboyzfix.co.za">fatboyz.co.za</a> | Onderstepoort, Pretoria, South Africa | 0829202766 | Mon-Fri 09:00-16:00</p></footer>
+    <a href="https://wa.me/27829202766" class="whatsapp-btn" aria-label="Chat on WhatsApp"><img src="/images/whatsapp.jpg" alt="WhatsApp"></a>
+    <button class="scroll-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">↑</button>
+    <footer class="footer"><p>© 2025 Fat Boyz Maintenance | <a href="https://fatboyzfix.co.za">fatboyzfix.co.za</a> | Onderstepoort, Pretoria, South Africa | 082 920 2766 | Mon-Fri 09:00-16:00</p></footer>
 
     <script>
+        // Preloader
+        window.addEventListener('load',()=>{
+            const preloader=document.getElementById('preloader');
+            preloader.style.opacity='0';
+            setTimeout(()=>{preloader.style.display='none'},500);
+        });
+
+        // Navigation
         let whatsappTimeout;
         document.addEventListener('DOMContentLoaded',()=>{
             whatsappTimeout=setTimeout(()=>{document.querySelector('.whatsapp-btn').classList.add('visible')},5000);
@@ -283,6 +291,8 @@
                 document.querySelector('.menu-toggle').classList.remove('active');
             });
         });
+
+        // Form Submission
         document.getElementById('contact-form').addEventListener('submit',e=>{
             e.preventDefault();
             const f=e.target,m=document.getElementById('form-message'),d=new FormData(f);
@@ -292,6 +302,8 @@
                         m.textContent='Message sent! We’ll get back to you soon.';
                         m.style.color='#C19A6B';
                         f.reset();
+                        m.classList.add('success');
+                        setTimeout(()=>{m.classList.remove('success')},3000);
                     }else{
                         m.textContent='Error sending message. Please try again.';
                         m.style.color='#4A6A7A';
@@ -302,6 +314,8 @@
                     m.style.color='#4A6A7A';
                 });
         });
+
+        // Scroll Effects
         window.addEventListener('scroll',()=>{
             const whatsappBtn=document.querySelector('.whatsapp-btn');
             const scrollTop=document.querySelector('.scroll-to-top');
@@ -317,11 +331,17 @@
                 whatsappTimeout=setTimeout(()=>{whatsappBtn.classList.add('visible')},5000);
             }
         });
+
+        // Menu Toggle
         document.querySelector('.menu-toggle').addEventListener('click',()=>{
             document.querySelector('.nav-links').classList.toggle('active');
             document.querySelector('.menu-toggle').classList.toggle('active');
         });
+
+        // Image Protection
         document.querySelectorAll('img').forEach(img=>img.addEventListener('contextmenu',e=>e.preventDefault()));
+
+        // Gallery Fullscreen
         const overlay=document.getElementById('fullscreenOverlay');
         const fullscreenImg=document.getElementById('fullscreenImage');
         const galleryImages=document.querySelectorAll('.gallery-item img');
