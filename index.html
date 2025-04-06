@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fat Boyz Maintenance - Home Maintenance and Repairs. Tiling, door installation, painting, and more in South Africa.">
-    <meta name="keywords" content="handyman Pretoria, home maintenance, tiling, door installation, painting, boundary walls, gates, South Africa, best handyman services">
+    <meta name="description" content="Fat Boyz Maintenance - Home Maintenance and Repairs. Ceilings, painting, tiling, driveway gates, doors, paving, palisade fencing in South Africa.">
+    <meta name="keywords" content="handyman Pretoria, home maintenance, ceilings, tiling, painting, driveway gates, doors, paving, palisade fencing, South Africa, best handyman services">
     <meta name="author" content="Fat Boyz Maintenance">
     <meta name="robots" content="index, follow">
     <meta name="geo.region" content="ZA-GP">
@@ -12,9 +12,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Fat Boyz Maintenance | Home Repairs in Gauteng, SA</title>
 
-    <!-- Open Graph Tags (Optimized for WhatsApp and Social Media) -->
+    <!-- Open Graph Tags -->
     <meta property="og:title" content="Fat Boyz Maintenance - Pretoria">
-    <meta property="og:description" content="Home maintenance and Repairs, South Africa. Tiling, painting, doors, and more.">
+    <meta property="og:description" content="Home maintenance and repairs in South Africa. Ceilings, painting, tiling, driveway gates, doors, paving, and more.">
     <meta property="og:image" content="https://fatboyzfix.co.za/images/fbmlogo300.png">
     <meta property="og:image:width" content="300">
     <meta property="og:image:height" content="300">
@@ -26,10 +26,10 @@
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Fat Boyz Maintenance - #1 Pretoria Maintenance">
-    <meta name="twitter:description" content="Home Maintenance and Repairs in Pretoria, South Africa. Tiling, painting, doors, and more.">
+    <meta name="twitter:description" content="Home Maintenance and Repairs in Pretoria, South Africa. Ceilings, tiling, painting, gates, and more.">
     <meta name="twitter:image" content="https://fatboyzfix.co.za/images/fbmlogo300.png">
 
-    <!-- Favicon (Using fbmlogo300.png) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/fbmlogo300.png" sizes="any">
     <link rel="apple-touch-icon" href="/images/fbmlogo300.png">
     <link rel="shortcut icon" type="image/png" href="/images/fbmlogo300.png">
@@ -41,7 +41,7 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap">
 
-    <!-- Schema Markup (Local Business) -->
+    <!-- Schema Markup -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -101,6 +101,15 @@
         .hero-content img{max-width:400px;width:80%;margin-bottom:0.5rem}
         .hero-content h1{font-family:'Montserrat',sans-serif;font-size:2.5rem;font-weight:700;margin-bottom:0.5rem}
         .hero-content p{font-size:1.2rem;margin-bottom:0.5rem}
+
+        /* New Services Spotlight */
+        .services-spotlight{list-style:none;padding:0;margin:1.5rem 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;max-width:600px}
+        .services-spotlight li{position:relative;padding-left:2.5rem;font-family:'Lato',sans-serif;font-size:1rem;color:#FFF;text-transform:uppercase;letter-spacing:1px;transition:all .3s ease}
+        .services-spotlight li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:20px;height:20px;background:#C19A6B;border-radius:50%;transition:background .3s}
+        .services-spotlight li::after{content:'+';position:absolute;left:5px;top:50%;transform:translateY(-50%);color:#1A2526;font-size:1.2rem;font-weight:700}
+        .services-spotlight li:hover{transform:translateX(10px);color:#C19A6B}
+        .services-spotlight li:hover::before{background:#FFF}
+
         .btn-primary{background:#C19A6B;color:#FFF;padding:0.8rem 1.5rem;border:none;border-radius:5px;font-family:'Montserrat',sans-serif;font-size:1rem;font-weight:700;transition:.3s}
         .btn-primary:hover{background:#4A6A7A;transform:translateY(-3px);box-shadow:0 0 15px rgba(193,154,107,.5)}
         .call-now{display:none;background:#C19A6B;color:#FFF;padding:0.8rem 1.5rem;border-radius:30px;font-family:'Montserrat',sans-serif;font-size:1.2rem;box-shadow:0 5px 15px rgba(0,0,0,.2);margin-top:1rem;text-align:center;animation:pulse 2s infinite ease-in-out}
@@ -168,6 +177,10 @@
             .section h2{font-size:1.8rem}
             .service-card img,.gallery-item img{height:120px}
             .call-now{display:block !important;position:static;padding:0.8rem 1.5rem;font-size:1.2rem;opacity:1}
+            .services-spotlight{grid-template-columns:1fr;max-width:90%;gap:0.8rem}
+            .services-spotlight li{font-size:0.9rem;padding-left:2rem}
+            .services-spotlight li::before{width:16px;height:16px}
+            .services-spotlight li::after{font-size:1rem;left:4px}
         }
         @media (max-width:480px) {
             .hero-content h1{font-size:1.2rem;margin-bottom:0.3rem}
@@ -177,6 +190,10 @@
             .section h2{font-size:1.5rem}
             .hero-content{margin-top:3rem}
             .call-now{padding:0.7rem 1.2rem;font-size:1rem}
+            .services-spotlight{gap:0.6rem}
+            .services-spotlight li{font-size:0.8rem;padding-left:1.8rem}
+            .services-spotlight li::before{width:14px;height:14px}
+            .services-spotlight li::after{font-size:0.9rem;left:3px}
         }
         @media (min-width:769px) {
             .call-now{display:none !important}
@@ -221,6 +238,15 @@
                 <img src="/images/fbmlogo300.png" alt="Fat Boyz Maintenance Logo">
                 <h1>Home Maintenance and Repairs</h1>
                 <p>Upgrade your home with new tiling, painting, door installations, and more.</p>
+                <ul class="services-spotlight">
+                    <li>Ceilings</li>
+                    <li>Painting</li>
+                    <li>Tiling</li>
+                    <li>Driveway Gates</li>
+                    <li>Doors</li>
+                    <li>Paving</li>
+                    <li>Palisade Fencing</li>
+                </ul>
                 <button class="btn-primary" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Get a Free Quote</button>
                 <a href="tel:+27829202766" class="call-now">Call Now</a>
             </div>
