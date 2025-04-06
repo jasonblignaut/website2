@@ -1,57 +1,94 @@
+<?php
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>File Upload</title>
+    <title>Simple File Upload</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:Arial,sans-serif;background:#f0f0f0;color:#333;display:flex;justify-content:center;align-items:center;min-height:100vh}
-        .container{max-width:500px;padding:2rem;background:#fff;border-radius:10px;box-shadow:0 0 10px rgba(0,0,0,.1);text-align:center}
-        h1{font-size:2rem;margin-bottom:1rem}
+        body{font-family:Arial,sans-serif;background:#f5f5f5;color:#333;display:flex;justify-content:center;align-items:center;min-height:100vh}
+        .container{max-width:600px;padding:2rem;background:#fff;border-radius:10px;box-shadow:0 0 15px rgba(0,0,0,.1);text-align:center}
+        h1{font-size:2rem;margin-bottom:1rem;color:#2c3e50}
         form{display:flex;flex-direction:column;gap:1rem}
-        input[type="file"]{padding:.5rem}
-        button{background:#007BFF;color:#fff;padding:.8rem;border:none;border-radius:5px;font-size:1rem;cursor:pointer;transition:.3s}
-        button:hover{background:#0056b3}
+        input[type="file"]{padding:.5rem;border:1px solid #ddd;border-radius:5px}
+        button{background:#3498db;color:#fff;padding:.8rem;border:none;border-radius:5px;font-size:1rem;cursor:pointer;transition:.3s}
+        button:hover{background:#2980b9}
         .message{margin-top:1rem;font-size:1rem}
-        .success{color:#28a745}
-        .error{color:#dc3545}
+        .success{color:#27ae60}
+        .error{color:#c0392b}
+        .debug{margin-top:2rem;font-size:.9rem;color:#666;text-align:left}
+        .debug pre{background:#f9f9f9;padding:1rem;border-radius:5px;overflow:auto}
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Upload a File</h1>
-        <form action="" method="POST" enctype="multipart/form-data">
-            <input type="file" name="fileToUpload" id="fileToUpload" required>
-            <button type="submit" name="submit">Upload</button>
-        </form>
-        <?php
-        if (isset($_POST['submit'])) {
-            $targetDir = "images/"; // Directory to save files
-            $fileName = basename($_FILES["fileToUpload"]["name"]);
-            $targetFile = $targetDir . $fileName;
-            $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
-            $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
+        <?php if (function_exists('phpversion')): ?>
+            <form action="" method="POST" enctype="multipart/form-data">
+                <input type="file" name="fileToUpload" id="fileToUpload" required>
+                <button type="submit" name="submit">Upload to /images/</button>
+            </form>
 
-            // Check if file is an allowed image type
-            if (in_array($fileType, $allowedTypes)) {
-                // Check if file already exists
-                if (file_exists($targetFile)) {
-                    echo "<p class='message error'>Error: File already exists.</p>";
+            <?php
+            if (isset($_POST['submit'])) {
+                $targetDir = "images/";
+                $maxFileSize = 5000000; // 5MB
+                $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
+
+                // Check if directory exists and is writable
+                if (!file_exists($targetDir)) {
+                    mkdir($targetDir, 0755, true);
+                }
+                if (!is_writable($targetDir)) {
+                    echo "<p class='message error'>Error: /images/ directory is not writable. Set permissions to 755 or 775.</p>";
                 } else {
-                    // Attempt to move the uploaded file
-                    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $targetFile)) {
-                        echo "<p class='message success'>File " . htmlspecialchars($fileName) . " uploaded successfully.</p>";
+                    $fileName = basename($_FILES["fileToUpload"]["name"]);
+                    $fileType = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+                    $uniqueFileName = time() . "_" . $fileName; // Avoid overwrites
+                    $targetFile = $targetDir . $uniqueFileName;
+
+                    // Validate file
+                    if (!in_array($fileType, $allowedTypes)) {
+                        echo "<p class='message error'>Error: Only JPG, JPEG, PNG, and GIF files are allowed.</p>";
+                    } elseif ($_FILES["fileToUpload"]["size"] > $maxFileSize) {
+                        echo "<p class='message error'>Error: File exceeds 5MB limit.</p>";
+                    } elseif ($_FILES["fileToUpload"]["error"] !== UPLOAD_ERR_OK) {
+                        echo "<p class='message error'>Error: Upload failed with code " . $_FILES["fileToUpload"]["error"] . ".</p>";
                     } else {
-                        echo "<p class='message error'>Error: Failed to upload file. Check directory permissions.</p>";
+                        // Move the file
+                        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $targetFile)) {
+                            echo "<p class='message success'>File " . htmlspecialchars($uniqueFileName) . " uploaded successfully to /images/.</p>";
+                            echo "<p><a href='/images/$uniqueFileName' target='_blank'>View File</a></p>";
+                        } else {
+                            echo "<p class='message error'>Error: Failed to move file. Check server permissions or configuration.</p>";
+                        }
                     }
                 }
-            } else {
-                echo "<p class='message error'>Error: Only JPG, JPEG, PNG, and GIF files are allowed.</p>";
             }
-        }
-        ?>
+            ?>
+
+            <!-- Debug Info -->
+            <div class="debug">
+                <h2>Server Diagnostics</h2>
+                <pre>
+PHP Version: <?php echo phpversion(); ?>
+Upload Max Filesize: <?php echo ini_get('upload_max_filesize'); ?>
+Post Max Size: <?php echo ini_get('post_max_size'); ?>
+/images/ Exists: <?php echo file_exists('images/') ? 'Yes' : 'No'; ?>
+/images/ Writable: <?php echo is_writable('images/') ? 'Yes' : 'No'; ?>
+                </pre>
+            </div>
+        <?php else: ?>
+            <!-- Fallback if PHP isn’t working -->
+            <p class="message error">Error: PHP is not enabled on this server. Contact your hosting provider.</p>
+        <?php endif; ?>
     </div>
 </body>
 </html>
