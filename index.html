@@ -41,7 +41,7 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Lato:wght@400;700&display=swap">
 
-    <!-- Schema Markup -->
+    <!-- Schema Markup for Local Business -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -65,6 +65,22 @@
             "latitude": -25.666667,
             "longitude": 28.083333
         }
+    }
+    </script>
+
+    <!-- Schema Markup for Breadcrumbs -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Property Maintenance",
+                "item": "https://fatboyzfix.co.za"
+            }
+        ]
     }
     </script>
 
@@ -209,9 +225,6 @@
     </style>
 </head>
 <body>
-    <!-- Preloader -->
-    <div id="preloader"><img src="/images/fbmlogo300.png" alt="Loading Fat Boyz Maintenance"></div>
-
     <header>
         <nav aria-label="Main navigation">
             <div class="menu-toggle" aria-label="Toggle menu" role="button" tabindex="0"><span></span><span></span><span></span></div>
@@ -312,16 +325,10 @@
     <button class="scroll-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">↑</button>
     <footer class="footer">
         <p>© 2025 Fat Boyz Maintenance | <a href="https://fatboyzfix.co.za">fatboyzfix.co.za</a> | Onderstepoort, Pretoria, South Africa | 082 920 2766 | Mon-Fri 09:00-16:00</p>
+        <p>Website Design By <a href="https://onefar.co.za">1FAR</a></p>
     </footer>
 
     <script>
-        // Preloader
-        window.addEventListener('load',()=>{
-            const preloader=document.getElementById('preloader');
-            preloader.style.opacity='0';
-            setTimeout(()=>{preloader.style.display='none'},500);
-        });
-
         // Navigation
         let whatsappTimeout;
         document.addEventListener('DOMContentLoaded',()=>{
